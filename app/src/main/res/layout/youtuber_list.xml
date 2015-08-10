@@ -1,0 +1,134 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="#424242">
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/yt_icon"
+            android:src="@drawable/vbicon"/>
+
+        <Button
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="ViscaBarca Sounds"
+            android:id="@+id/sounds"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="25dp"
+            android:background="#2196F3"
+            android:onClick="sounds"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="https://www.youtube.com/user/Visca96Barca"
+        android:id="@+id/ytlink"
+        android:layout_marginTop="10dp"
+        android:layout_weight="28.83" />
+
+    <Button
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:text="MarcelScorpion"
+        android:id="@+id/marcelscorpion"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_weight="1"
+        android:layout_gravity="center_horizontal"
+        android:background="#607D8B"
+        style="@style/TextAppearance.AppCompat.Display1"
+        android:layout_marginTop="10dp"
+        android:onClick="ms"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="MontanaBlack"
+        android:id="@+id/montanablack"
+        android:layout_below="@+id/montanablack"
+        android:layout_centerHorizontal="true"
+        android:layout_weight="1"
+        android:layout_gravity="center_horizontal"
+        style="@style/TextAppearance.AppCompat.Display1"
+        android:background="#607D8B"
+        android:onClick="mb"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="ViscaBarca"
+        android:id="@+id/viscabarca"
+        android:layout_below="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:layout_weight="1"
+        android:layout_gravity="center_horizontal"
+        style="@style/TextAppearance.AppCompat.Display1"
+        android:background="#607D8B"
+        android:onClick="vb"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Inscope21"
+        android:id="@+id/inscope"
+        android:layout_below="@+id/button3"
+        android:layout_centerHorizontal="true"
+        android:layout_weight="1"
+        android:layout_gravity="center_horizontal"
+        style="@style/TextAppearance.AppCompat.Display1"
+        android:background="#607D8B"
+        android:onClick="is"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="E IL o T IR i X"
+        android:id="@+id/elotrix"
+        android:layout_below="@+id/button4"
+        android:layout_alignLeft="@+id/button4"
+        android:layout_alignStart="@+id/button4"
+        android:layout_weight="1"
+        android:layout_gravity="center_horizontal"
+        style="@style/TextAppearance.AppCompat.Display1"
+        android:background="#607D8B"
+        android:onClick="et"/>
+</LinearLayout>

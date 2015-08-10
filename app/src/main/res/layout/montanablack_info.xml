@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#424242">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Zurück"
+            android:id="@+id/montanablack_zurück4"
+            android:layout_gravity="right"
+            android:layout_weight="31.43"
+            android:background="#673AB7"
+            android:onClick="mb4_back" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Weiter"
+            android:id="@+id/montanablack_weiter4"
+            android:layout_weight="31.43"
+            android:background="#673AB7"
+            android:onClick="mb4_next"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Der Youtuber heißt Marcel, und ist ein CoD Kommentator. Außer Call of Duty macht er auch Vlogs und ziemlich geile Realstorys. Falls ihr ihn Unterstützen wollt oder ihn feiert lasst doch einfach ein Abo da!&quot;"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:textColor="#673AB7" />
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:text="Abonnieren!"
+        android:id="@+id/button"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:background="#9C27B0"
+        android:onClick="mb_kanal"/>
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="An den Youtuber"
+        android:id="@+id/textView2"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Falls es Probleme, Anliegen oder Änderungswünsche gibt schreiben sie uns bitte direkt auf Facebook oder über E-mail an, wir sind immer offen für neues"
+        android:id="@+id/textView3"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="italic" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Alle Audio Dateien sind direkt aus Youtube übernommen"
+        android:id="@+id/textView4"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp" />
+
+</LinearLayout>
