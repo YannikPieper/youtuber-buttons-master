@@ -34,7 +34,7 @@
     <Button
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Tot kurz vor Triple!"
+        android:text="Marcel singt V.2"
         android:id="@+id/marcelscorpion_b1"
         android:layout_weight="1"
         android:layout_marginTop="10dp"
@@ -43,64 +43,70 @@
         style="@android:style/Animation"
         android:singleLine="false"
         android:focusableInTouchMode="false"
-        android:textStyle="bold|italic" />
+        android:textStyle="bold|italic"
+        android:onClick="ms_b13"/>
 
     <Button
-        android:layout_width="180dp"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:text="Nuketown Ausraster"
+        android:text="Marcels ganzer stolz"
         android:id="@+id/marcelscorpion_b2"
         android:layout_weight="1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_gravity="center_horizontal"
         android:background="#EF5350"
-        android:textStyle="bold|italic" />
+        android:textStyle="bold|italic"
+        android:onClick="ms_b14"/>
 
     <Button
-        android:layout_width="120dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:id="@+id/marcelscorpion_b3"
         android:layout_weight="1"
         android:layout_marginTop="20dp"
-        android:text="Begrüßung"
+        android:text="no Hands!"
         android:layout_gravity="center_horizontal"
         android:background="#EF5350"
-        android:textStyle="bold|italic" />
+        android:textStyle="bold|italic"
+        android:onClick="ms_b15"/>
 
     <Button
-        android:layout_width="260dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Rechts vor Links beachten"
+        android:text="Ich habe sowas noch nie gesehen!"
         android:id="@+id/marcelscorpion_b4"
         android:layout_weight="1"
         android:layout_marginTop="20dp"
         android:layout_gravity="center_horizontal"
         android:background="#EF5350"
-        android:textStyle="bold|italic" />
+        android:textStyle="bold|italic"
+        android:onClick="ms_b16"/>
 
     <Button
-        android:layout_width="340dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Marcel singt in der Schlacht um die PS4"
+        android:text="Noobs Schwitzen!"
         android:id="@+id/marcelscorpion_b5"
         android:layout_weight="1"
         android:layout_marginTop="20dp"
         android:layout_gravity="center_horizontal"
         android:background="#EF5350"
-        android:textStyle="bold|italic" />
+        android:textStyle="bold|italic"
+        android:onClick="ms_b17"/>
 
     <Button
-        android:layout_width="340dp"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:text="Nase wie der Vater, Brüste wie die Mutter"
+        android:text="only &quot;Flinke Hände&quot;!"
         android:id="@+id/marcelscorpion_b6"
         android:layout_weight="1"
         android:layout_marginTop="20dp"
         android:layout_gravity="center_horizontal"
         android:background="#EF5350"
         android:textStyle="bold|italic"
-        android:layout_marginBottom="25dp" />
+        android:layout_marginBottom="25dp"
+        android:onClick="ms_b18"/>
 
     <TextView
         android:layout_width="wrap_content"

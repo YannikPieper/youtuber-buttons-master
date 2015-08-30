@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#424242">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Zurück"
+            android:id="@+id/montanablack_zurück1"
+            android:layout_gravity="right"
+            android:layout_weight="31.43"
+            android:background="#673AB7"
+            android:onClick="mb4_back"/>
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Weiter"
+            android:id="@+id/montanablack_weiter1"
+            android:layout_weight="31.43"
+            android:background="#673AB7"
+            android:onClick="mb4_next"/>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:text="Trololololol"
+        android:id="@+id/montanablack_b1"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#9C27B0"
+        style="@android:style/Animation"
+        android:singleLine="false"
+        android:focusableInTouchMode="false"
+        android:textStyle="bold|italic"
+        android:onClick="mb_b19"/>
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="Uiuiui!"
+        android:id="@+id/montanablack_b2"
+        android:layout_weight="1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#9C27B0"
+        android:textStyle="bold|italic"
+        android:onClick="mb_b20"/>
+
+    <Button
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/montanablack_b3"
+        android:layout_weight="1"
+        android:layout_marginTop="20dp"
+        android:text="Vorräte"
+        android:layout_gravity="center_horizontal"
+        android:background="#9C27B0"
+        android:textStyle="bold|italic"
+        android:onClick="mb_b21"/>
+
+    <Button
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:text="Was ist das denn für ein Bug?"
+        android:id="@+id/montanablack_b4"
+        android:layout_weight="1"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#9C27B0"
+        android:textStyle="bold|italic"
+        android:onClick="mb_b22"/>
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="Aktiv"
+        android:id="@+id/montanablack_b5"
+        android:layout_weight="1"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#9C27B0"
+        android:textStyle="bold|italic"
+        android:onClick="mb_b23"/>
+
+    <Button
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="5 gegen Willi"
+        android:id="@+id/montanablack_b6"
+        android:layout_weight="1"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#9C27B0"
+        android:textStyle="bold|italic"
+        android:layout_marginBottom="25dp"
+        android:onClick="mb_b24"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="4"
+        android:id="@+id/montanablack_Page3"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1" />
+
+</LinearLayout>

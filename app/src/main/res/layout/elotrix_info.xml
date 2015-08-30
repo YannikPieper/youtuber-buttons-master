@@ -35,7 +35,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Der Youtuber heißt Carsten, und macht hauptsächlich Call of Duty Videos. Wer Rage Moments liebt ist hier auf jeden Fall richtig. Falls ihr ihn Unterstützen wollt oder ihn feiert lasst doch einfach ein Abo da! &quot;"
+        android:text="Der Youtuber heißt Carsten und macht hauptsächlich Call of Duty Videos. Wer Rage Moments liebt ist hier auf jeden Fall richtig. Falls ihr ihn unterstützen wollt oder ihn feiert lasst doch einfach ein Abo da! &quot;"
         android:id="@+id/textView"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"

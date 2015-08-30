@@ -18,28 +18,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/yt_icon"
-            android:src="@drawable/vbicon"/>
+            android:src="@drawable/msicon"/>
 
         <Button
             android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:text="ViscaBarca Sounds"
+            android:text="Marcelscorpion Sounds"
             android:id="@+id/sounds"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="25dp"
-            android:background="#2196F3"
-            android:onClick="sounds"/>
+            android:background="#B71C1C"
+            android:onClick="sounds"
+            android:textSize="15dp"
+            style="@style/TextAppearance.AppCompat.Display1" />
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <Button
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="https://www.youtube.com/user/Visca96Barca"
-        android:id="@+id/ytlink"
-        android:layout_marginTop="10dp"
-        android:layout_weight="28.83" />
+        android:text="Meine Favoriten"
+        android:id="@+id/button2"
+        android:layout_gravity="center_horizontal"
+        style="@style/TextAppearance.AppCompat.Display1"
+        android:layout_marginTop="30dp"
+        android:background="#B2FF59"
+        android:textSize="20dp"
+        android:onClick="favoriten"/>
 
     <Button
         android:layout_width="500dp"
@@ -52,8 +57,9 @@
         android:layout_gravity="center_horizontal"
         android:background="#607D8B"
         style="@style/TextAppearance.AppCompat.Display1"
-        android:layout_marginTop="10dp"
-        android:onClick="ms"/>
+        android:layout_marginTop="30dp"
+        android:onClick="ms"
+        android:textSize="30dp" />
 
     <Space
         android:layout_width="match_parent"
@@ -72,7 +78,8 @@
         android:layout_gravity="center_horizontal"
         style="@style/TextAppearance.AppCompat.Display1"
         android:background="#607D8B"
-        android:onClick="mb"/>
+        android:onClick="mb"
+        android:textSize="30dp" />
 
     <Space
         android:layout_width="match_parent"
@@ -90,8 +97,9 @@
         android:layout_weight="1"
         android:layout_gravity="center_horizontal"
         style="@style/TextAppearance.AppCompat.Display1"
-        android:background="#607D8B"
-        android:onClick="vb"/>
+        android:background="#263238"
+        android:onClick="vb"
+        android:textSize="30dp" />
 
     <Space
         android:layout_width="match_parent"
@@ -109,8 +117,9 @@
         android:layout_weight="1"
         android:layout_gravity="center_horizontal"
         style="@style/TextAppearance.AppCompat.Display1"
-        android:background="#607D8B"
-        android:onClick="is"/>
+        android:background="#263238"
+        android:onClick="is"
+        android:textSize="30dp" />
 
     <Space
         android:layout_width="match_parent"
@@ -130,5 +139,6 @@
         android:layout_gravity="center_horizontal"
         style="@style/TextAppearance.AppCompat.Display1"
         android:background="#607D8B"
-        android:onClick="et"/>
+        android:onClick="et"
+        android:textSize="30dp" />
 </LinearLayout>

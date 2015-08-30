@@ -35,7 +35,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Der Youtuber heißt Anton, und ist ein CoD Kommentator. Außer Call of Duty macht er auch Vlogs und andere Unterhaltungsvideos. Falls ihr ihn Unterstützen wollt oder ihn feiert lasst doch einfach ein Abo da!&quot;"
+        android:text="Der Youtuber heißt Anton und ist ein CoD Kommentator. Außer Call of Duty macht er auch Vlogs und andere Unterhaltungsvideos. Falls ihr ihn ugnterstützen wollt oder ihn feiert lasst doch einfach ein Abo da!&quot;"
         android:id="@+id/textView"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"

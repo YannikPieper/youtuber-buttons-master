@@ -35,7 +35,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Der Youtuber heißt Nico, und macht hauptsächlich Unterhaltungs Videos. Außerdem gibt es hin und wieder auch Fitness Tipps. Falls ihr ihn Unterstützen wollt oder ihn feiert lasst doch einfach ein Abo da! Moment da fällt mir noch was ein, VERPISST EUCH!&quot;"
+        android:text="Der Youtuber heißt Nico und macht hauptsächlich Unterhaltungsvideos. Außerdem gibt es hin und wieder auch Fitness Tipps. Falls ihr ihn unterstützen wollt oder ihn feiert lasst doch einfach ein Abo da! Moment da fällt mir noch was ein, VERPISST EUCH!&quot;"
         android:id="@+id/textView"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="15dp"

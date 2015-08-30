@@ -32,9 +32,9 @@
     </LinearLayout>
 
     <Button
-        android:layout_width="200dp"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:text="Begrüßung"
+        android:text="Moin Moin"
         android:id="@+id/montanablack_b1"
         android:layout_weight="1"
         android:layout_marginTop="10dp"
@@ -43,64 +43,70 @@
         style="@android:style/Animation"
         android:singleLine="false"
         android:focusableInTouchMode="false"
-        android:textStyle="bold|italic" />
+        android:textStyle="bold|italic"
+        android:onClick="mb_b1"/>
 
     <Button
-        android:layout_width="180dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:text="AAktiv!"
+        android:text="Ich mag after"
         android:id="@+id/montanablack_b2"
         android:layout_weight="1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_gravity="center_horizontal"
         android:background="#9C27B0"
-        android:textStyle="bold|italic" />
+        android:textStyle="bold|italic"
+        android:onClick="mb_b2"/>
 
     <Button
-        android:layout_width="150dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:id="@+id/montanablack_b3"
         android:layout_weight="1"
         android:layout_marginTop="20dp"
-        android:text="Montanablack2"
+        android:text="Wie das erste Mal Anal"
         android:layout_gravity="center_horizontal"
         android:background="#9C27B0"
-        android:textStyle="bold|italic" />
+        android:textStyle="bold|italic"
+        android:onClick="mb_b3"/>
 
     <Button
-        android:layout_width="260dp"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:text="Montanablack2"
+        android:text="Du Hurensohn V.1"
         android:id="@+id/montanablack_b4"
         android:layout_weight="1"
         android:layout_marginTop="20dp"
         android:layout_gravity="center_horizontal"
         android:background="#9C27B0"
-        android:textStyle="bold|italic" />
+        android:textStyle="bold|italic"
+        android:onClick="mb_b4"/>
 
     <Button
-        android:layout_width="340dp"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:text="Montanablack2"
+        android:text="Du Hurensohn V.2"
         android:id="@+id/montanablack_b5"
         android:layout_weight="1"
         android:layout_marginTop="20dp"
         android:layout_gravity="center_horizontal"
         android:background="#9C27B0"
-        android:textStyle="bold|italic" />
+        android:textStyle="bold|italic"
+        android:onClick="mb_b5"/>
 
     <Button
-        android:layout_width="340dp"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:text="Montanablack2"
+        android:text="Du Hurensohn V.3"
         android:id="@+id/montanablack_b6"
         android:layout_weight="1"
         android:layout_marginTop="20dp"
         android:layout_gravity="center_horizontal"
         android:background="#9C27B0"
         android:textStyle="bold|italic"
-        android:layout_marginBottom="25dp" />
+        android:layout_marginBottom="25dp"
+        android:onClick="mb_b6"/>
 
     <TextView
         android:layout_width="wrap_content"
