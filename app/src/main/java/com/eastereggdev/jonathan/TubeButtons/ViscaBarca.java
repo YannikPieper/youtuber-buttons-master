@@ -21,7 +21,7 @@ public class ViscaBarca extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.viscabarca_1);
+        setContentView(R.layout.viscabarca);
         setTitle("ViscaBarca");
 
        // viscabarca_buttons();

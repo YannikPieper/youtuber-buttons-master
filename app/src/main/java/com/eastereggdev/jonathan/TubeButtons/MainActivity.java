@@ -1,18 +1,29 @@
 package com.eastereggdev.jonathan.TubeButtons;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.eastereggdev.jonathan.TubeButtons.Elotrix;
 import com.eastereggdev.jonathan.TubeButtons.Montanablack;
 import com.example.jonathan.TubeButtons.R;
+
+import java.util.Random;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -24,20 +35,637 @@ public class MainActivity extends ActionBarActivity {
     int mbicon = R.drawable.mbicon;
     int isicon = R.drawable.isicon;
     int eticon = R.drawable.eticon;
+    private LinearLayout ytlist;
+    private static final int NOTIFICATION_ID = 0;
 
+    int update;
     int yt = 0;
+    int rumNum;
+    private MediaPlayer mp = new MediaPlayer();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.youtuber_list);
-
     }
 
-    public void favoriten(View view) //Button to see your favorites
+    public void rumble(View view) //Button to play a random sound
     {
-        Intent intent = new Intent(this, Favoriten.class);
-        startActivity(intent); //Start class "Favoriten"
+        Rumble();
+    }
+
+    public void Rumble()
+    {
+        Random rand = new Random();
+        rumNum = (rand.nextInt(150) + 1);
+        SelectSound();
+    }
+
+    public void SelectSound()
+    {
+        mp.reset();
+        if(rumNum == 1)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_abgehoben);
+        }
+        if(rumNum == 2)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_abnormal);
+        }
+        if(rumNum == 3)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_aufdemauto);
+        }
+        if(rumNum == 4)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_aufklaerungsdrohne);
+        }
+        if(rumNum == 5)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_aufklaerungsdrohne2);
+        }
+        if(rumNum == 6)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_ausraster);
+        }
+        if(rumNum == 7)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_begruessung);
+        }
+        if(rumNum == 8)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_daskanndochnichtsein);
+        }
+        if(rumNum == 9)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_deineelternsindgeschwister);
+        }
+        if(rumNum == 10)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_diekoennennix);
+        }
+        if(rumNum == 11)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_dudreckigerhuansohn);
+        }
+        if(rumNum == 12)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_duhuansohn);
+        }
+        if(rumNum == 13)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_duhuansohn2);
+        }
+        if(rumNum == 14)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_duhuansohn3);
+        }
+        if(rumNum == 15)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_ehnur);
+        }
+        if(rumNum == 16)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_einszufuenf);
+        }
+        if(rumNum == 17)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_eristwiederda);
+        }
+        if(rumNum == 18)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_esreicht);
+        }
+        if(rumNum == 19)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_habtihrgesehn);
+        }
+        if(rumNum == 20)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_harakesh);
+        }
+        if(rumNum == 21)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_hardscope);
+        }
+        if(rumNum == 22)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_hnnnn);
+        }
+        if(rumNum == 23)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_ihropfer);
+        }
+        if(rumNum == 24)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_inzucht);
+        }
+        if(rumNum == 25)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_keinaim);
+        }
+        if(rumNum == 26)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_keinbock);
+        }
+        if(rumNum == 27)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_keinrecht);
+        }
+        if(rumNum == 28)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_krankesouns);
+        }
+        if(rumNum == 29)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_laecherlich);
+        }
+        if(rumNum == 30)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_laecherlich2);
+        }
+        if(rumNum == 31)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_meinemamahatgesagt);
+        }
+        if(rumNum == 32)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_mongoname);
+        }
+        if(rumNum == 33)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_nachjoiner);
+        }
+        if(rumNum == 34)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_nein);
+        }
+        if(rumNum == 35)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_ohgott);
+        }
+        if(rumNum == 36)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_ohman);
+        }
+        if(rumNum == 37)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_ohnein);
+        }
+        if(rumNum == 38)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_roterpfeil);
+        }
+        if(rumNum == 39)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_scheisslobby);
+        }
+        if(rumNum == 40)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_scheisssniper);
+        }
+        if(rumNum == 41)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_schluck);
+        }
+        if(rumNum == 42)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_seinemom);
+        }
+        if(rumNum == 43)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_springausdemfenster);
+        }
+        if(rumNum == 44)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_untermensch);
+        }
+        if(rumNum == 45)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_verarschen);
+        }
+        if(rumNum == 46)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_vonhinten);
+        }
+        if(rumNum == 47)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_wasfuereinaim);
+        }
+        if(rumNum == 48)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_washastdugetan);
+        }
+        if(rumNum == 49)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_wasmachstduda);
+        }
+        if(rumNum == 50)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_waswillstdu);
+        }
+        if(rumNum == 51)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_weizen);
+        }
+        if(rumNum == 52)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_wiedervonhinten);
+        }
+        if(rumNum == 53)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_wiediegeiern);
+        }
+        if(rumNum == 54)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.et_woraufsankommt);
+        }
+        if(rumNum == 55)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.is_abgenommen);
+        }
+        if(rumNum == 56)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.is_begruessung);
+        }
+        if(rumNum == 57)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.is_cup);
+        }
+        if(rumNum == 58)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.is_derpunkt);
+        }
+        if(rumNum == 59)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.is_ereignisse);
+        }
+        if(rumNum == 60)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.is_eydigger);
+        }
+        if(rumNum == 61)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.is_haltmaul);
+        }
+        if(rumNum == 62)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.is_halzmaul);
+        }
+        if(rumNum == 63)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.is_idontgetit);
+        }
+        if(rumNum == 64)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.is_jaaber);
+        }
+        if(rumNum == 65)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.is_wahrscheinlich);
+        }
+        if(rumNum == 66)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.is_laeuft);
+        }
+        if(rumNum == 67)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.is_licht);
+        }
+        if(rumNum == 68)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.is_mainstation);
+        }
+        if(rumNum == 69)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.is_oppertunity);
+        }
+        if(rumNum == 70)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.is_scheissebedarf);
+        }
+        if(rumNum == 71)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.is_simon);
+        }
+        if(rumNum == 72)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.is_traum);
+        }
+        if(rumNum == 73)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.is_trick);
+        }
+        if(rumNum == 74)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.is_trockenfruechte);
+        }
+        if(rumNum == 75)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.is_umarmung);
+        }
+        if(rumNum == 76)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.is_verpissdich);
+        }
+        if(rumNum == 77)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.is_verpissen);
+        }
+        if(rumNum == 78)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.is_fiat);
+        }
+        if(rumNum == 79)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.is_gesagt);
+        }
+        if(rumNum == 80)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.is_hhhhhh);
+        }
+        if(rumNum == 81)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.is_ichmeine);
+        }
+        if(rumNum == 82)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.is_jucktdennich);
+        }
+        if(rumNum == 83)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.is_woihrrechthabt);
+        }
+        if(rumNum == 84)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.mb_5vswilli);
+        }
+        if(rumNum == 85)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.mb_after);
+        }
+        if(rumNum == 86)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.mb_aktiv);
+        }
+        if(rumNum == 87)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.mb_bug);
+        }
+        if(rumNum == 88)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.mb_erstesmal);
+        }
+        if(rumNum == 89)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.mb_hurensohn);
+        }
+        if(rumNum == 90)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.mb_hurensohn2);
+        }
+        if(rumNum == 91)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.mb_hurensohn3);
+        }
+        if(rumNum == 92)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.mb_isklar);
+        }
+        if(rumNum == 93)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.mb_kundenhotline);
+        }
+        if(rumNum == 94)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.mb_lache);
+        }
+        if(rumNum == 95)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.mb_lache2);
+        }
+        if(rumNum == 96)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.mb_messerihn);
+        }
+        if(rumNum == 97)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.mb_moinmoin);
+        }
+        if(rumNum == 98)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.mb_nein);
+        }
+        if(rumNum == 99)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.mb_nicespawn);
+        }
+        if(rumNum == 100)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.mb_ohh);
+        }
+        if(rumNum == 101)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.mb_omg);
+        }
+        if(rumNum == 102)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.mb_pizza);
+        }
+        if(rumNum == 103)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.mb_porno);
+        }
+        if(rumNum == 104)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.mb_schleifendehoden);
+        }
+        if(rumNum == 105)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.mb_trol);
+        }
+        if(rumNum == 106)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.mb_uiui);
+        }
+        if(rumNum == 107)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.mb_vorraete);
+        }
+        if(rumNum == 108)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_ausraster1);
+        }
+        if(rumNum == 109)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_ballerrein2);
+        }
+        if(rumNum == 110)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_begruessung);
+        }
+        if(rumNum == 111)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_bombi);
+        }
+        if(rumNum == 112)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_einsvor);
+        }
+        if(rumNum == 113)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_eyman);
+        }
+        if(rumNum == 114)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_frechdachs);
+        }
+        if(rumNum == 115)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_krank1);
+        }
+        if(rumNum == 116)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_krank2);
+        }
+        if(rumNum == 117)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_krank3);
+        }
+        if(rumNum == 118)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_krankesounds);
+        }
+        if(rumNum == 119)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_krankfinale);
+        }
+        if(rumNum == 120)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_lachs);
+        }
+        if(rumNum == 121)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_lenakannsnicht);
+        }
+        if(rumNum == 122)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_lenalachen);
+        }
+        if(rumNum == 123)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_marcelsingt1);
+        }
+        if(rumNum == 124)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_marcelsingt2);
+        }
+        if(rumNum == 125)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_meinpissoir);
+        }
+        if(rumNum == 126)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_neinwas);
+        }
+        if(rumNum == 127)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_nochniegesehen);
+        }
+        if(rumNum == 128)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_noconnection);
+        }
+        if(rumNum == 129)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_nohands);
+        }
+        if(rumNum == 130)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_noobsschwitzen);
+        }
+        if(rumNum == 131)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_ohgott);
+        }
+        if(rumNum == 132)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_ohoh);
+        }
+        if(rumNum == 133)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_onlyflinkehaende);
+        }
+        if(rumNum == 134)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_ragemoment);
+        }
+        if(rumNum == 135)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_rechtsvorlinks);
+        }
+        if(rumNum == 136)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_sagudaheda);
+        }
+        if(rumNum == 137)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_schwarm);
+        }
+        if(rumNum == 138)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_stellung);
+        }
+        if(rumNum == 139)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_sweep);
+        }
+        if(rumNum == 140)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_tarnheli);
+        }
+        if(rumNum == 141)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_tot1vor);
+        }
+        if(rumNum == 142)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_verabschiedung);
+        }
+        if(rumNum == 143)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_wasistmitdenleutenlos);
+        }
+        if(rumNum == 144)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_weristderbeste);
+        }
+        if(rumNum == 145)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_wermchtdennsowas);
+        }
+        if(rumNum == 146)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_whoisthebest);
+        }
+        if(rumNum == 147)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_wuup);
+        }
+        if(rumNum == 148)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_zelosmonteturnon);
+        }
+        if(rumNum == 149)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_zelosred);
+        }
+        if(rumNum == 150)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_zelossauberman);
+        }
+
+        mp.start();
     }
 
     public void ms(View view) //Method to change the values on top of the xml file
@@ -54,8 +682,8 @@ public class MainActivity extends ActionBarActivity {
     {
         ytView = (ImageView) findViewById(R.id.yt_icon);
         soundboard = (Button) findViewById(R.id.sounds);
-        soundboard.setText("Gesperrt");
-        soundboard.setBackgroundColor(Color.parseColor("#263238"));
+        soundboard.setText("ViscaBarca Sounds");
+        soundboard.setBackgroundColor(Color.parseColor("#3F51B5"));
         ytView.setImageResource(vbicon);
         yt = 2;
     }
@@ -74,8 +702,8 @@ public class MainActivity extends ActionBarActivity {
     {
         ytView = (ImageView) findViewById(R.id.yt_icon);
         soundboard = (Button) findViewById(R.id.sounds);
-        soundboard.setText("Gesperrt");
-        soundboard.setBackgroundColor(Color.parseColor("#263238"));
+        soundboard.setText("Inscope21 Sounds");
+        soundboard.setBackgroundColor(Color.parseColor("#4CAF50"));
         ytView.setImageResource(isicon);
         yt = 4;
     }
@@ -104,30 +732,17 @@ public class MainActivity extends ActionBarActivity {
         }
         if(yt == 2)
         {
-            CharSequence text = "Dieser YouTuber wird erst im nächsten Update freigeschaltet!"; //Text shown by toast
-            int duration = Toast.LENGTH_SHORT; //Toast duration
-
-            Toast toast = Toast.makeText(getApplicationContext(), text, duration);
-            toast.show();
-
-            /*Intent intent = new Intent(this, ViscaBarca.class);
-            startActivity(intent);*/
+            Intent intent = new Intent(this, ViscaBarca.class);
+            startActivity(intent);
         }
         if(yt == 3)
         {
             Intent intent = new Intent(this, Montanablack.class);
             startActivity(intent);
         }
-        if(yt == 4)
-        {
-            CharSequence text = "Dieser YouTuber wird erst im nächsten Update freigeschaltet!"; //Text shown by toast
-            int duration = Toast.LENGTH_SHORT; //Toast duration
-
-            Toast toast = Toast.makeText(getApplicationContext(), text, duration);
-            toast.show();
-
-            /* Intent intent = new Intent(this, Inscope.class);
-            startActivity(intent);*/
+        if(yt == 4) {
+            Intent intent = new Intent(this, Inscope.class);
+            startActivity(intent);
         }
         if(yt == 5)
         {
@@ -137,13 +752,6 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
-
-
-
-    /*
-
-    No actual use for the Settings in the Action Menu Bar!
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -151,7 +759,7 @@ public class MainActivity extends ActionBarActivity {
         return true;
     }
 
-    @Override
+    /*@Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -160,11 +768,32 @@ public class MainActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            openSettings();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
-    }  */
+    }*/
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        super.onOptionsItemSelected(item);
+
+        switch (item.getItemId()) {
+            case R.id.action_informations:
+                Intent infos = new Intent(this, Informations.class);
+                startActivity(infos);
+                return true;
+
+            case R.id.action_favoriten:
+                Intent favoriten = new Intent(this, Favoriten.class);
+                startActivity(favoriten);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
 
 }

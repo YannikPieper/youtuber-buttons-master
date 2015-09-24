@@ -5,7 +5,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
     android:orientation="vertical"
-    android:background="#424242">
+    android:background="#424242"
+    android:id="@+id/ytlist">
 
 
     <LinearLayout
@@ -37,17 +38,17 @@
     <Button
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:text="Meine Favoriten"
+        android:text="Rumble "
         android:id="@+id/button2"
         android:layout_gravity="center_horizontal"
         style="@style/TextAppearance.AppCompat.Display1"
         android:layout_marginTop="30dp"
-        android:background="#B2FF59"
+        android:background="@drawable/rumblebutton"
         android:textSize="20dp"
-        android:onClick="favoriten"/>
+        android:onClick="rumble"/>
 
     <Button
-        android:layout_width="500dp"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="MarcelScorpion"
         android:id="@+id/marcelscorpion"
@@ -55,7 +56,7 @@
         android:layout_centerHorizontal="true"
         android:layout_weight="1"
         android:layout_gravity="center_horizontal"
-        android:background="#607D8B"
+        android:background="@drawable/mainbutton"
         style="@style/TextAppearance.AppCompat.Display1"
         android:layout_marginTop="30dp"
         android:onClick="ms"
@@ -77,7 +78,7 @@
         android:layout_weight="1"
         android:layout_gravity="center_horizontal"
         style="@style/TextAppearance.AppCompat.Display1"
-        android:background="#607D8B"
+        android:background="@drawable/mainbutton"
         android:onClick="mb"
         android:textSize="30dp" />
 
@@ -97,7 +98,7 @@
         android:layout_weight="1"
         android:layout_gravity="center_horizontal"
         style="@style/TextAppearance.AppCompat.Display1"
-        android:background="#263238"
+        android:background="@drawable/mainbutton"
         android:onClick="vb"
         android:textSize="30dp" />
 
@@ -117,7 +118,7 @@
         android:layout_weight="1"
         android:layout_gravity="center_horizontal"
         style="@style/TextAppearance.AppCompat.Display1"
-        android:background="#263238"
+        android:background="@drawable/mainbutton"
         android:onClick="is"
         android:textSize="30dp" />
 
@@ -138,7 +139,7 @@
         android:layout_weight="1"
         android:layout_gravity="center_horizontal"
         style="@style/TextAppearance.AppCompat.Display1"
-        android:background="#607D8B"
+        android:background="@drawable/mainbutton"
         android:onClick="et"
         android:textSize="30dp" />
 </LinearLayout>

@@ -55,17 +55,9 @@
             android:focusableInTouchMode="false"
             android:textStyle="bold|italic"
             android:onClick="et_b25"
-            android:layout_marginLeft="20dp"
-            android:textSize="15dp" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/checkBox25"
-            android:layout_weight="31.43"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:checked="false" />
+            android:layout_marginLeft="30dp"
+            android:textSize="15dp"
+            android:layout_marginRight="30dp" />
 
     </LinearLayout>
 
@@ -87,17 +79,10 @@
             android:background="#FFC107"
             android:textStyle="bold|italic"
             android:onClick="et_b26"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="30dp"
             style="@style/TextAppearance.AppCompat.Display1"
-            android:textSize="15dp" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/checkBox26"
-            android:layout_weight="31.43"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp" />
+            android:textSize="15dp"
+            android:layout_marginRight="30dp" />
 
     </LinearLayout>
 
@@ -118,17 +103,10 @@
             android:background="#FFC107"
             android:textStyle="bold|italic"
             android:onClick="et_b27"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="30dp"
             style="@style/TextAppearance.AppCompat.Display1"
-            android:textSize="15dp" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/checkBox27"
-            android:layout_weight="31.43"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp" />
+            android:textSize="15dp"
+            android:layout_marginRight="30dp" />
 
     </LinearLayout>
 
@@ -149,17 +127,10 @@
             android:background="#FFC107"
             android:textStyle="bold|italic"
             android:onClick="et_b28"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="30dp"
             style="@style/TextAppearance.AppCompat.Display1"
-            android:textSize="15dp" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/checkBox28"
-            android:layout_weight="31.43"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp" />
+            android:textSize="15dp"
+            android:layout_marginRight="30dp" />
 
     </LinearLayout>
 
@@ -180,17 +151,10 @@
             android:background="#FFC107"
             android:textStyle="bold|italic"
             android:onClick="et_b29"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="30dp"
             style="@style/TextAppearance.AppCompat.Display1"
-            android:textSize="15dp" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/checkBox29"
-            android:layout_weight="31.43"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp" />
+            android:textSize="15dp"
+            android:layout_marginRight="30dp" />
 
     </LinearLayout>
 
@@ -212,17 +176,10 @@
             android:textStyle="bold|italic"
             android:layout_marginBottom="25dp"
             android:onClick="et_b30"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="30dp"
             style="@style/TextAppearance.AppCompat.Display1"
-            android:textSize="15dp" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/checkBox30"
-            android:layout_weight="31.43"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp" />
+            android:textSize="15dp"
+            android:layout_marginRight="30dp" />
 
     </LinearLayout>
 

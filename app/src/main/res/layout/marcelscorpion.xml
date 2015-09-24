@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#424242">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Zurück"
+            android:id="@+id/marcelscorpion_back"
+            android:layout_gravity="right"
+            android:layout_weight="31.43"
+            android:background="#B71C1C"
+            android:onClick="ms_back"
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:textSize="20dp" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Weiter"
+            android:id="@+id/marcelscorpion_next"
+            android:layout_weight="31.43"
+            android:background="#B71C1C"
+            android:onClick="ms_next"
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1">
+
+        <Button
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:text="Es connected kein Schuss"
+            android:id="@+id/marcelscorpion_b1"
+            android:layout_weight="7.41"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/msbutton"
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:singleLine="false"
+            android:focusableInTouchMode="false"
+            android:textStyle="bold|italic"
+            android:onClick="ms_b1"
+            android:layout_marginLeft="20dp"
+            android:textSize="15dp"
+            android:layout_marginRight="10dp" />
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:id="@+id/ms_fav1"
+            android:layout_weight="7.41"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/fav_leer"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:onClick="ms_fav"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1">
+
+        <Button
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:text="Wer ist der Beste"
+            android:id="@+id/marcelscorpion_b2"
+            android:layout_weight="7.41"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/msbutton"
+            android:textStyle="bold|italic"
+            android:onClick="ms_b2"
+            android:layout_marginLeft="20dp"
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:textSize="15dp"
+            android:layout_marginRight="10dp" />
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:id="@+id/ms_fav2"
+            android:layout_weight="7.41"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/fav_leer"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:onClick="ms_fav"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1">
+
+        <Button
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/marcelscorpion_b3"
+            android:layout_weight="7.41"
+            android:layout_marginTop="20dp"
+            android:text="Eins Vor!"
+            android:background="@drawable/msbutton"
+            android:textStyle="bold|italic"
+            android:onClick="ms_b3"
+            android:layout_marginLeft="20dp"
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:textSize="15dp"
+            android:layout_marginRight="10dp" />
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:id="@+id/ms_fav3"
+            android:layout_weight="7.41"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/fav_leer"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:onClick="ms_fav"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1">
+
+        <Button
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:text="Der Frechdachs"
+            android:id="@+id/marcelscorpion_b4"
+            android:layout_weight="7.41"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/msbutton"
+            android:textStyle="bold|italic"
+            android:onClick="ms_b4"
+            android:layout_marginLeft="20dp"
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:textSize="15dp"
+            android:layout_marginRight="10dp" />
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:id="@+id/ms_fav4"
+            android:layout_weight="7.41"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/fav_leer"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:onClick="ms_fav"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1">
+
+        <Button
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:text="Marcel ist verrückt V.1"
+            android:id="@+id/marcelscorpion_b5"
+            android:layout_weight="7.41"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/msbutton"
+            android:textStyle="bold|italic"
+            android:onClick="ms_b5"
+            android:layout_marginLeft="20dp"
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:textSize="15dp"
+            android:layout_marginRight="10dp" />
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:id="@+id/ms_fav5"
+            android:layout_weight="7.41"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/fav_leer"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:onClick="ms_fav"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1">
+
+        <Button
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:text="Marcel ist verrückt V.2"
+            android:id="@+id/marcelscorpion_b6"
+            android:layout_weight="7.41"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/msbutton"
+            android:textStyle="bold|italic"
+            android:layout_marginBottom="20dp"
+            android:onClick="ms_b6"
+            android:layout_marginLeft="20dp"
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:textSize="15dp"
+            android:layout_marginRight="10dp" />
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:id="@+id/ms_fav6"
+            android:layout_weight="7.41"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/fav_leer"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:onClick="ms_fav"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="1"
+        android:id="@+id/marcelscorpion_Page1"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1" />
+
+</LinearLayout>

@@ -19,16 +19,20 @@ import java.util.ArrayList;
 
 public class Elotrix extends ActionBarActivity {
     private MediaPlayer mp = new MediaPlayer();
-    private RadioButton checked;
-    private Button et_1;
-    private Button et_2;
-    private Button et_3;
-    private Button et_4;
-    private Button et_5;
-    private Button et_6;
 
-    private boolean et1_f = false;
-    ArrayList<String> et_fav = new ArrayList<String>();
+    private static int etfav1 = 0;
+    private static int etfav2 = 0;
+    private static int etfav3 = 0;
+    private static int etfav4 = 0;
+    private static int etfav5 = 0;
+    private static int etfav6 = 0;
+
+    private Button fav1;
+    private Button fav2;
+    private Button fav3;
+    private Button fav4;
+    private Button fav5;
+    private Button fav6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,79 +41,11 @@ public class Elotrix extends ActionBarActivity {
         setTitle("Elotrix");
     }
 
-    public void selectFav(View view)
+
+    public void et_fav(View view)
     {
-        boolean checked = ((CheckBox) view).isChecked();
-        Button et_1 = (Button) findViewById(R.id.elotrix_b1);
-        Button et_2 = (Button) findViewById(R.id.elotrix_b2);
-        Button et_3 = (Button) findViewById(R.id.elotrix_b3);
-        Button et_4 = (Button) findViewById(R.id.elotrix_b4);
-        Button et_5 = (Button) findViewById(R.id.elotrix_b5);
-        Button et_6 = (Button) findViewById(R.id.elotrix_b6);
 
-        switch (view.getId())
-        {
-            case R.id.c_et1:
-                if(checked)
-                {et_fav.add("et_1");
-                et_1.setBackgroundColor(Color.parseColor("#673AB7"));}
-                else
-                {et_fav.remove("et_1");
-                    et_1.setBackgroundColor(Color.parseColor("#FFC107"));}
-                break;
-
-            case R.id.c_et2:
-
-                if(checked)
-                {et_fav.add("et_2");
-                    et_2.setBackgroundColor(Color.parseColor("#673AB7"));}
-                else
-                {et_fav.remove("et_2");
-                    et_2.setBackgroundColor(Color.parseColor("#FFC107"));}
-                break;
-
-            case R.id.c_et3:
-
-                if(checked)
-                {et_fav.add("et_3");
-                    et_3.setBackgroundColor(Color.parseColor("#673AB7"));}
-                else
-                {et_fav.remove("et_3");
-                    et_3.setBackgroundColor(Color.parseColor("#FFC107"));}
-                break;
-
-            case R.id.c_et4:
-
-                if(checked)
-                {et_fav.add("et_4");
-                    et_4.setBackgroundColor(Color.parseColor("#673AB7"));}
-                else
-                {et_fav.remove("et_4");
-                    et_4.setBackgroundColor(Color.parseColor("#FFC107"));}
-                break;
-
-            case R.id.c_et5:
-
-                if(checked)
-                {et_fav.add("et_5");
-                    et_5.setBackgroundColor(Color.parseColor("#673AB7"));}
-                else
-                {et_fav.remove("et_5");
-                    et_5.setBackgroundColor(Color.parseColor("#FFC107"));}
-                break;
-
-            case R.id.c_et6:
-
-                if(checked)
-                {et_fav.add("et_6");
-                    et_6.setBackgroundColor(Color.parseColor("#673AB7"));}
-                else
-                {et_fav.remove("et_6");
-                    et_6.setBackgroundColor(Color.parseColor("#FFC107"));}
-                break;
-        }
     }
-
 
 
     //OnClick Method für alle verschiedenen Sound Buttons
@@ -332,6 +268,114 @@ public class Elotrix extends ActionBarActivity {
         mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.Elotrix.this, R.raw.et_harakesh); //Method to start the MediaPlayer with the selected Sound
         mp.start();
     }
+    public void et_b37(View view)
+    {
+        mp.reset();
+        mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.Elotrix.this, R.raw.et_abnormal); //Method to start the MediaPlayer with the selected Sound
+        mp.start();
+    }
+    public void et_b38(View view)
+    {
+        mp.reset();
+        mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.Elotrix.this, R.raw.et_ausraster); //Method to start the MediaPlayer with the selected Sound
+        mp.start();
+    }
+    public void et_b39(View view)
+    {
+        mp.reset();
+        mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.Elotrix.this, R.raw.et_einszufuenf); //Method to start the MediaPlayer with the selected Sound
+        mp.start();
+    }
+    public void et_b40(View view)
+    {
+        mp.reset();
+        mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.Elotrix.this, R.raw.et_habtihrgesehn); //Method to start the MediaPlayer with the selected Sound
+        mp.start();
+    }
+    public void et_b41(View view)
+    {
+        mp.reset();
+        mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.Elotrix.this, R.raw.et_hardscope); //Method to start the MediaPlayer with the selected Sound
+        mp.start();
+    }
+    public void et_b42(View view)
+    {
+        mp.reset();
+        mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.Elotrix.this, R.raw.et_inzucht); //Method to start the MediaPlayer with the selected Sound
+        mp.start();
+    }
+    public void et_b43(View view)
+    {
+        mp.reset();
+        mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.Elotrix.this, R.raw.et_keinaim); //Method to start the MediaPlayer with the selected Sound
+        mp.start();
+    }
+    public void et_b44(View view)
+    {
+        mp.reset();
+        mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.Elotrix.this, R.raw.et_keinbock); //Method to start the MediaPlayer with the selected Sound
+        mp.start();
+    }
+    public void et_b45(View view)
+    {
+        mp.reset();
+        mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.Elotrix.this, R.raw.et_laecherlich2); //Method to start the MediaPlayer with the selected Sound
+        mp.start();
+    }
+    public void et_b46(View view)
+    {
+        mp.reset();
+        mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.Elotrix.this, R.raw.et_nachjoiner); //Method to start the MediaPlayer with the selected Sound
+        mp.start();
+    }
+    public void et_b47(View view)
+    {
+        mp.reset();
+        mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.Elotrix.this, R.raw.et_nein); //Method to start the MediaPlayer with the selected Sound
+        mp.start();
+    }
+    public void et_b48(View view)
+    {
+        mp.reset();
+        mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.Elotrix.this, R.raw.et_scheisslobby); //Method to start the MediaPlayer with the selected Sound
+        mp.start();
+    }
+    public void et_b49(View view)
+    {
+        mp.reset();
+        mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.Elotrix.this, R.raw.et_seinemom); //Method to start the MediaPlayer with the selected Sound
+        mp.start();
+    }
+    public void et_b50(View view)
+    {
+        mp.reset();
+        mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.Elotrix.this, R.raw.et_untermensch); //Method to start the MediaPlayer with the selected Sound
+        mp.start();
+    }
+    public void et_b51(View view)
+    {
+        mp.reset();
+        mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.Elotrix.this, R.raw.et_verarschen); //Method to start the MediaPlayer with the selected Sound
+        mp.start();
+    }
+    public void et_b52(View view)
+    {
+        mp.reset();
+        mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.Elotrix.this, R.raw.et_waswillstdu); //Method to start the MediaPlayer with the selected Sound
+        mp.start();
+    }
+    public void et_b53(View view)
+    {
+        mp.reset();
+        mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.Elotrix.this, R.raw.et_weizen); //Method to start the MediaPlayer with the selected Sound
+        mp.start();
+    }
+    public void et_b54(View view)
+    {
+        mp.reset();
+        mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.Elotrix.this, R.raw.et_wiedervonhinten); //Method to start the MediaPlayer with the selected Sound
+        mp.start();
+    }
 
 
     public void et1_next(View view)
@@ -366,7 +410,7 @@ public class Elotrix extends ActionBarActivity {
 
     public void et4_back(View view)
     {
-        setContentView(R.layout.elotrix_6);
+        setContentView(R.layout.elotrix_9);
     }
 
     public void et4_next(View view)
@@ -396,12 +440,40 @@ public class Elotrix extends ActionBarActivity {
 
     public void et7_next(View view)
     {
-        setContentView(R.layout.elotrix_info);
+        setContentView(R.layout.elotrix_7);
     }
 
     public void et7_back(View view)
     {
         setContentView(R.layout.elotrix_5);
+    }
+
+    public void et8_next(View view)
+    {
+        setContentView(R.layout.elotrix_8);
+    }
+
+    public void et8_back(View view)
+    {
+        setContentView(R.layout.elotrix_6);
+    }
+    public void et9_next(View view)
+    {
+        setContentView(R.layout.elotrix_9);
+    }
+
+    public void et9_back(View view)
+    {
+        setContentView(R.layout.elotrix_7);
+    }
+    public void et10_next(View view)
+    {
+        setContentView(R.layout.elotrix_info);
+    }
+
+    public void et10_back(View view)
+    {
+        setContentView(R.layout.elotrix_8);
     }
 
     public void et_kanal(View view)

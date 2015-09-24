@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#424242">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Zurück"
+            android:id="@+id/elotrix_zurück1"
+            android:layout_gravity="right"
+            android:layout_weight="31.43"
+            android:background="#673AB7"
+            android:onClick="mb_back"
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:textSize="20dp" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Weiter"
+            android:id="@+id/elotrix_weiter1"
+            android:layout_weight="31.43"
+            android:background="#673AB7"
+            android:onClick="mb_next"
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1">
+
+        <Button
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:text="Moin Moin"
+            android:id="@+id/montanablack_b1"
+            android:layout_weight="7.41"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/mbbutton"
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:singleLine="false"
+            android:focusableInTouchMode="false"
+            android:textStyle="bold|italic"
+            android:onClick="mb_b1"
+            android:layout_marginLeft="20dp"
+            android:textSize="15dp"
+            android:layout_marginRight="10dp" />
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:id="@+id/mb_fav1"
+            android:layout_weight="7.41"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/fav_leer"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:onClick="mb_fav"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1">
+
+        <Button
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:text="After gefällt mir!"
+            android:id="@+id/montanablack_b2"
+            android:layout_weight="7.41"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/mbbutton"
+            android:textStyle="bold|italic"
+            android:onClick="mb_b2"
+            android:layout_marginLeft="20dp"
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:textSize="15dp"
+            android:layout_marginRight="10dp" />
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:id="@+id/mb_fav2"
+            android:layout_weight="7.41"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/fav_leer"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:onClick="mb_fav"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1">
+
+        <Button
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/montanablack_b3"
+            android:layout_weight="7.41"
+            android:layout_marginTop="20dp"
+            android:text="Wie beim ersten mal Anal"
+            android:background="@drawable/mbbutton"
+            android:textStyle="bold|italic"
+            android:onClick="mb_b3"
+            android:layout_marginLeft="20dp"
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:textSize="15dp"
+            android:layout_marginRight="10dp" />
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:id="@+id/mb_fav3"
+            android:layout_weight="7.41"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/fav_leer"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:onClick="mb_fav"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1">
+
+        <Button
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:text="Du Hurensohn V.1"
+            android:id="@+id/montanablack_b4"
+            android:layout_weight="7.41"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/mbbutton"
+            android:textStyle="bold|italic"
+            android:onClick="mb_b4"
+            android:layout_marginLeft="20dp"
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:textSize="15dp"
+            android:layout_marginRight="10dp" />
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:id="@+id/mb_fav4"
+            android:layout_weight="7.41"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/fav_leer"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:onClick="mb_fav"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1">
+
+        <Button
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:text="Du Hurensohn V.2"
+            android:id="@+id/montanablack_b5"
+            android:layout_weight="7.41"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/mbbutton"
+            android:textStyle="bold|italic"
+            android:onClick="mb_b5"
+            android:layout_marginLeft="20dp"
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:textSize="15dp"
+            android:layout_marginRight="10dp" />
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:id="@+id/mb_fav5"
+            android:layout_weight="7.41"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/fav_leer"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:onClick="mb_fav"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1">
+
+        <Button
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:text="Du Hurensohn V.3"
+            android:id="@+id/montanablack_b6"
+            android:layout_weight="7.41"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/mbbutton"
+            android:textStyle="bold|italic"
+            android:layout_marginBottom="20dp"
+            android:onClick="mb_b6"
+            android:layout_marginLeft="20dp"
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:textSize="15dp"
+            android:layout_marginRight="10dp" />
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:id="@+id/mb_fav6"
+            android:layout_weight="7.41"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/fav_leer"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:onClick="mb_fav"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="1"
+        android:id="@+id/montanablack_Page1"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1" />
+
+</LinearLayout>

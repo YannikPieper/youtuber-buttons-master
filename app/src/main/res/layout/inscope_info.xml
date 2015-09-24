@@ -18,7 +18,9 @@
             android:layout_gravity="right"
             android:layout_weight="31.43"
             android:background="#4CAF50"
-            android:onClick="is4_back" />
+            android:onClick="isinfo_back"
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:textSize="20dp" />
 
         <Button
             android:layout_width="100dp"
@@ -27,29 +29,24 @@
             android:id="@+id/inscope_weiter4"
             android:layout_weight="31.43"
             android:background="#4CAF50"
-            android:onClick="is4_next"/>
+            android:onClick="isinfo_next"
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:textSize="20dp" />
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Der Youtuber heißt Nico und macht hauptsächlich Unterhaltungsvideos. Außerdem gibt es hin und wieder auch Fitness Tipps. Falls ihr ihn unterstützen wollt oder ihn feiert lasst doch einfach ein Abo da! Moment da fällt mir noch was ein, VERPISST EUCH!&quot;"
-        android:id="@+id/textView"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="15dp"
-        android:textColor="#4CAF50" />
-
     <Button
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:text="Abonnieren!"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:text="Inscope21 Abonnieren!"
         android:id="@+id/button"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:background="#8BC34A"
-        android:onClick="is_kanal"/>
+        android:layout_marginTop="40dp"
+        android:background="@drawable/isbutton"
+        android:onClick="is_kanal"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        style="@style/TextAppearance.AppCompat.Display1" />
 
     <TextView
         android:layout_width="300dp"
@@ -58,8 +55,9 @@
         android:text="An den Youtuber"
         android:id="@+id/textView2"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:textStyle="bold" />
+        android:layout_marginTop="40dp"
+        android:textStyle="bold"
+        style="@style/TextAppearance.AppCompat.Display1" />
 
     <TextView
         android:layout_width="300dp"
@@ -68,7 +66,8 @@
         android:text="Falls es Probleme, Anliegen oder Änderungswünsche gibt schreiben sie uns bitte direkt auf Facebook oder über E-mail an, wir sind immer offen für neues"
         android:id="@+id/textView3"
         android:layout_gravity="center_horizontal"
-        android:textStyle="italic" />
+        style="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="20dp" />
 
     <TextView
         android:layout_width="300dp"
@@ -77,6 +76,8 @@
         android:text="Alle Audio Dateien sind direkt aus Youtube übernommen"
         android:id="@+id/textView4"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="10dp"
+        style="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="15dp" />
 
 </LinearLayout>
