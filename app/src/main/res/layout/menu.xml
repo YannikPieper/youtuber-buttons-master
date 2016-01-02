@@ -1,0 +1,160 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="@drawable/dust2"
+    android:id="@+id/ytlist">
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/linearLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="5dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/yt_icon"
+            android:src="@drawable/eticon"/>
+
+        <Button
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="Elotrix Sounds"
+            android:id="@+id/sounds"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/ytfavbutton"
+            android:onClick="sounds"
+            android:textSize="15dp"
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#787878" />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Komplette Liste"
+        android:id="@+id/ytlistb"
+        android:background="@drawable/ytfavbutton"
+        android:onClick="ytlist"
+        style="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="25dp"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="84dp"
+        android:layout_alignParentBottom="false"
+        android:layout_marginBottom="20dp"
+        android:layout_above="@+id/infotext" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="by Easter Egg Development"
+        android:id="@+id/infotext"
+        android:layout_gravity="center_horizontal"
+        style="@style/TextAppearance.AppCompat.Display1"
+        android:textStyle="bold|italic"
+        android:textColor="#787878"
+        android:textAlignment="center"
+        android:autoText="false"
+        android:editable="false"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentLeft="false"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_centerHorizontal="true"
+        android:textSize="17dp"
+        android:singleLine="false"
+        android:lines="@integer/abc_max_action_buttons" />
+
+    <Button
+       android:layout_width="match_parent"
+       android:layout_height="50dp"
+       android:text="Rumble "
+       android:id="@+id/button2"
+       android:layout_gravity="center_horizontal"
+       style="@style/TextAppearance.AppCompat.Display1"
+        android:background="@drawable/ytfavbutton"
+       android:textSize="25dp"
+       android:onClick="rumble"
+        android:layout_marginBottom="60dp"
+        android:layout_alignBottom="@+id/ytlistb"
+        android:layout_alignRight="@+id/linearLayout"
+        android:layout_alignEnd="@+id/linearLayout" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:id="@+id/next"
+        android:background="@drawable/isbuttongo"
+        style="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="20dp"
+        android:textColor="#8BC34A"
+        android:onClick="next"
+        android:layout_alignRight="@+id/button2"
+        android:layout_alignEnd="@+id/button2"
+        android:layout_alignTop="@+id/back"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentRight="false"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_alignParentTop="false"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:id="@+id/back"
+        android:background="@drawable/msbuttongo"
+        style="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="20dp"
+        android:textColor="#B71C1C"
+        android:onClick="back"
+        android:layout_above="@+id/ytlistb"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="https://www.youtube.com/user/iKevinho90"
+        android:id="@+id/yURL"
+        android:textColor="#787878"
+        android:layout_below="@+id/linearLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Elotrix"
+        android:id="@+id/youtuber"
+        android:background="@drawable/etbuttongo"
+        android:textColor="#787878"
+        android:onClick="youtuber"
+        style="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="20dp"
+        android:layout_above="@+id/next"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp" />
+
+</RelativeLayout>

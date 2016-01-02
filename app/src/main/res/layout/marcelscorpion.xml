@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#424242">
+    android:background="@drawable/codbg2">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -49,27 +49,16 @@
             android:id="@+id/marcelscorpion_b1"
             android:layout_weight="7.41"
             android:layout_marginTop="20dp"
-            android:background="@drawable/msbutton"
+            android:background="@drawable/msbuttongo"
             style="@style/TextAppearance.AppCompat.Display1"
             android:singleLine="false"
             android:focusableInTouchMode="false"
-            android:textStyle="bold|italic"
+            android:textStyle="italic"
             android:onClick="ms_b1"
             android:layout_marginLeft="20dp"
             android:textSize="15dp"
-            android:layout_marginRight="10dp" />
-
-        <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="50dp"
-            android:id="@+id/ms_fav1"
-            android:layout_weight="7.41"
-            android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
-            android:src="@drawable/fav_leer"
-            android:scaleType="fitCenter"
-            android:background="@android:color/transparent"
-            android:onClick="ms_fav"/>
+            android:textColor="#F65200" />
 
     </LinearLayout>
 
@@ -88,25 +77,14 @@
             android:layout_weight="7.41"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:background="@drawable/msbutton"
-            android:textStyle="bold|italic"
+            android:background="@drawable/msbuttongo"
+            android:textStyle="italic"
             android:onClick="ms_b2"
             android:layout_marginLeft="20dp"
             style="@style/TextAppearance.AppCompat.Display1"
             android:textSize="15dp"
-            android:layout_marginRight="10dp" />
-
-        <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="50dp"
-            android:id="@+id/ms_fav2"
-            android:layout_weight="7.41"
-            android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
-            android:src="@drawable/fav_leer"
-            android:scaleType="fitCenter"
-            android:background="@android:color/transparent"
-            android:onClick="ms_fav"/>
+            android:textColor="#F65200" />
 
     </LinearLayout>
 
@@ -124,25 +102,14 @@
             android:layout_weight="7.41"
             android:layout_marginTop="20dp"
             android:text="Eins Vor!"
-            android:background="@drawable/msbutton"
-            android:textStyle="bold|italic"
+            android:background="@drawable/msbuttongo"
+            android:textStyle="italic"
             android:onClick="ms_b3"
             android:layout_marginLeft="20dp"
             style="@style/TextAppearance.AppCompat.Display1"
             android:textSize="15dp"
-            android:layout_marginRight="10dp" />
-
-        <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="50dp"
-            android:id="@+id/ms_fav3"
-            android:layout_weight="7.41"
-            android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
-            android:src="@drawable/fav_leer"
-            android:scaleType="fitCenter"
-            android:background="@android:color/transparent"
-            android:onClick="ms_fav"/>
+            android:textColor="#F65200" />
 
     </LinearLayout>
 
@@ -160,25 +127,14 @@
             android:id="@+id/marcelscorpion_b4"
             android:layout_weight="7.41"
             android:layout_marginTop="20dp"
-            android:background="@drawable/msbutton"
-            android:textStyle="bold|italic"
+            android:background="@drawable/msbuttongo"
+            android:textStyle="italic"
             android:onClick="ms_b4"
             android:layout_marginLeft="20dp"
             style="@style/TextAppearance.AppCompat.Display1"
             android:textSize="15dp"
-            android:layout_marginRight="10dp" />
-
-        <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="50dp"
-            android:id="@+id/ms_fav4"
-            android:layout_weight="7.41"
-            android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
-            android:src="@drawable/fav_leer"
-            android:scaleType="fitCenter"
-            android:background="@android:color/transparent"
-            android:onClick="ms_fav"/>
+            android:textColor="#F65200" />
 
 
     </LinearLayout>
@@ -197,25 +153,14 @@
             android:id="@+id/marcelscorpion_b5"
             android:layout_weight="7.41"
             android:layout_marginTop="20dp"
-            android:background="@drawable/msbutton"
-            android:textStyle="bold|italic"
+            android:background="@drawable/msbuttongo"
+            android:textStyle="italic"
             android:onClick="ms_b5"
             android:layout_marginLeft="20dp"
             style="@style/TextAppearance.AppCompat.Display1"
             android:textSize="15dp"
-            android:layout_marginRight="10dp" />
-
-        <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="50dp"
-            android:id="@+id/ms_fav5"
-            android:layout_weight="7.41"
-            android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
-            android:src="@drawable/fav_leer"
-            android:scaleType="fitCenter"
-            android:background="@android:color/transparent"
-            android:onClick="ms_fav"/>
+            android:textColor="#F65200" />
 
 
     </LinearLayout>
@@ -234,26 +179,15 @@
             android:id="@+id/marcelscorpion_b6"
             android:layout_weight="7.41"
             android:layout_marginTop="20dp"
-            android:background="@drawable/msbutton"
-            android:textStyle="bold|italic"
+            android:background="@drawable/msbuttongo"
+            android:textStyle="italic"
             android:layout_marginBottom="20dp"
             android:onClick="ms_b6"
             android:layout_marginLeft="20dp"
             style="@style/TextAppearance.AppCompat.Display1"
             android:textSize="15dp"
-            android:layout_marginRight="10dp" />
-
-        <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="50dp"
-            android:id="@+id/ms_fav6"
-            android:layout_weight="7.41"
-            android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
-            android:src="@drawable/fav_leer"
-            android:scaleType="fitCenter"
-            android:background="@android:color/transparent"
-            android:onClick="ms_fav"/>
+            android:textColor="#F65200" />
 
     </LinearLayout>
 
@@ -264,6 +198,8 @@
         android:text="1"
         android:id="@+id/marcelscorpion_Page1"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:textColor="#787878"
+        android:textStyle="bold" />
 
 </LinearLayout>

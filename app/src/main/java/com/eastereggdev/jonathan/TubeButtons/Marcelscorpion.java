@@ -1,113 +1,49 @@
 package com.eastereggdev.jonathan.TubeButtons;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.jonathan.TubeButtons.R;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 
 
 public class Marcelscorpion extends ActionBarActivity {
     private MediaPlayer mp = new MediaPlayer();
     private int page = 1;
-    private boolean fav1 = false;
-    private boolean fav2 = false;
-    private boolean fav3 = false;
-    private boolean fav4 = false;
-    private boolean fav5 = false;
-    private boolean fav6 = false;
+
+    public String ordnerpfad = Environment.getExternalStorageDirectory() + "/TubeSounds";
+    public String soundpfad = ordnerpfad + "/sound.mp3";
+    public File ordnerfile = new File(ordnerpfad);
+    public File soundfile = new File(soundpfad);
+    public Uri urisound = Uri.parse(soundpfad);
+    public byte[] byte1 = new byte[1024];
+    public int zwischenspeicher = 0;
+    public InputStream is1;
+    public FileOutputStream fos;
+
+    public Intent shareintent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.marcelscorpion); //Set the layout file
         setTitle("Marcelscorpion"); //Rename the ActionBar Title
-    }
 
-    public void ms_fav(View view){
-        switch (view.getId())
-        {
-            case R.id.ms_fav1:
-                ImageButton msfav1 = (ImageButton) findViewById(R.id.ms_fav1);
-                if(fav1 == false) {
-                    msfav1.setBackgroundResource(R.drawable.fav_voll);
-                    fav1 = true;
-                    break;
-                }
-                if(fav1 == true) {
-                    msfav1.setBackgroundResource(R.drawable.fav_leer);
-                    fav1 = false;
-                    break;
-                }
-            case R.id.ms_fav2:
-                ImageButton msfav2 = (ImageButton) findViewById(R.id.ms_fav2);
-                if(fav2 == false) {
-                    msfav2.setBackgroundResource(R.drawable.fav_voll);
-                    fav2 = true;
-                    break;
-                }
-                if(fav2 == true) {
-                    msfav2.setBackgroundResource(R.drawable.fav_leer);
-                    fav2 = false;
-                    break;
-                }
-
-            case R.id.ms_fav3:
-                ImageButton msfav3 = (ImageButton) findViewById(R.id.ms_fav3);
-                if(fav3 == false) {
-                    msfav3.setBackgroundResource(R.drawable.fav_voll);
-                    fav3 = true;
-                    break;
-                }
-                if(fav3 == true) {
-                    msfav3.setBackgroundResource(R.drawable.fav_leer);
-                    fav3 = false;
-                    break;
-                }
-
-            case R.id.ms_fav4:
-                ImageButton msfav4 = (ImageButton) findViewById(R.id.ms_fav4);
-                if(fav4 == false) {
-                    msfav4.setBackgroundResource(R.drawable.fav_voll);
-                    fav4 = true;
-                    break;
-                }
-                if(fav4 == true) {
-                    msfav4.setBackgroundResource(R.drawable.fav_leer);
-                    fav4 = false;
-                    break;
-                }
-            case R.id.ms_fav5:
-                ImageButton msfav5 = (ImageButton) findViewById(R.id.ms_fav5);
-                if(fav5 == false) {
-                    msfav5.setBackgroundResource(R.drawable.fav_voll);
-                    fav5 = true;
-                    break;
-                }
-                if(fav5 == true) {
-                    msfav5.setBackgroundResource(R.drawable.fav_leer);
-                    fav5 = false;
-                    break;
-                }
-            case R.id.ms_fav6:
-                ImageButton msfav6 = (ImageButton) findViewById(R.id.ms_fav6);
-                if(fav6 == false) {
-                    msfav6.setBackgroundResource(R.drawable.fav_voll);
-                    fav6 = true;
-                    break;
-                }
-                if(fav6 == true) {
-                    msfav6.setBackgroundResource(R.drawable.fav_leer);
-                    fav6 = false;
-                    break;
-                }
-        }
+        marcelscorpion_share();
     }
 
     public void setText(){
@@ -217,6 +153,387 @@ public class Marcelscorpion extends ActionBarActivity {
             mb6.setText("Wuuuup");
         }
     }
+
+    public void marcelscorpion_share(){
+        Button ms1 = (Button) findViewById(R.id.marcelscorpion_b1);
+        Button ms2 = (Button) findViewById(R.id.marcelscorpion_b2);
+        Button ms3 = (Button) findViewById(R.id.marcelscorpion_b3);
+        Button ms4 = (Button) findViewById(R.id.marcelscorpion_b4);
+        Button ms5 = (Button) findViewById(R.id.marcelscorpion_b5);
+        Button ms6 = (Button) findViewById(R.id.marcelscorpion_b6);
+
+
+        ms1.setOnLongClickListener(new View.OnLongClickListener() {
+            public boolean onLongClick(View v) {
+                if(! ordnerfile.exists()){
+
+                    try{
+                        ordnerfile.mkdir();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                try {
+
+                    if(page ==1) {
+                        is1 = getResources().openRawResource(R.raw.ms_noconnection);
+                    }
+                    if(page ==2) {
+                        is1 = getResources().openRawResource(R.raw.ms_krank3);
+                    }
+                    if(page ==3) {
+                        is1 = getResources().openRawResource(R.raw.ms_marcelsingt2);
+                    }
+                    if(page ==4) {
+                        is1 = getResources().openRawResource(R.raw.ms_ragemoment);
+                    }
+                    if(page ==5) {
+                        is1 = getResources().openRawResource(R.raw.ms_wermchtdennsowas);
+                    }
+                    if(page ==6) {
+                        is1 = getResources().openRawResource(R.raw.ms_sagudaheda);
+                    }
+                    if(page ==7) {
+                        is1 = getResources().openRawResource(R.raw.ms_ballerrein2);
+                    }
+                    fos = new FileOutputStream(soundfile);
+
+                    while((zwischenspeicher = is1.read(byte1)) > 0){
+
+                        fos.write(byte1, 0, zwischenspeicher);
+
+                    }
+                    is1.close();
+                    fos.close();
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                }
+
+                shareintent = new Intent(Intent.ACTION_SEND);
+                shareintent.setType("audio/*");
+                shareintent.putExtra(Intent.EXTRA_STREAM, urisound);
+                startActivity(Intent.createChooser(shareintent, "Sound teilen..."));
+
+                return true;
+
+            }
+        });
+
+        ms2.setOnLongClickListener(new View.OnLongClickListener() {
+            public boolean onLongClick(View v) {
+
+                if(! ordnerfile.exists()){
+
+                    try{
+                        ordnerfile.mkdir();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                try {
+
+                    if(page ==1) {
+                        is1 = getResources().openRawResource(R.raw.ms_weristderbeste);
+                    }
+                    if(page ==2) {
+                        is1 = getResources().openRawResource(R.raw.ms_krankfinale);
+                    }
+                    if(page ==3) {
+                        is1 = getResources().openRawResource(R.raw.ms_meinpissoir);
+                    }
+                    if(page ==4) {
+                        is1 = getResources().openRawResource(R.raw.ms_rechtsvorlinks);
+                    }
+                    if(page ==5) {
+                        is1 = getResources().openRawResource(R.raw.ms_whoisthebest);
+                    }
+                    if(page ==6) {
+                        is1 = getResources().openRawResource(R.raw.ms_bombi);
+                    }
+                    if(page ==7) {
+                        is1 = getResources().openRawResource(R.raw.ms_begruessung);
+                    }
+                    fos = new FileOutputStream(soundfile);
+
+                    while((zwischenspeicher = is1.read(byte1)) > 0){
+
+                        fos.write(byte1, 0, zwischenspeicher);
+
+                    }
+                    is1.close();
+                    fos.close();
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                }
+
+                shareintent = new Intent(Intent.ACTION_SEND);
+                shareintent.setType("audio/*");
+                shareintent.putExtra(Intent.EXTRA_STREAM, urisound);
+                startActivity(Intent.createChooser(shareintent, "Sound teilen..."));
+
+                return true;
+
+            }
+        });
+
+        ms3.setOnLongClickListener(new View.OnLongClickListener() {
+            public boolean onLongClick(View v) {
+                if(! ordnerfile.exists()){
+
+                    try{
+                        ordnerfile.mkdir();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                try {
+
+                    if(page ==1) {
+                        is1 = getResources().openRawResource(R.raw.ms_einsvor);
+                    }
+                    if(page ==2) {
+                        is1 = getResources().openRawResource(R.raw.ms_krankesounds);
+                    }
+                    if(page ==3) {
+                        is1 = getResources().openRawResource(R.raw.ms_nohands);
+                    }
+                    if(page ==4) {
+                        is1 = getResources().openRawResource(R.raw.ms_schwarm);
+                    }
+                    if(page ==5) {
+                        is1 = getResources().openRawResource(R.raw.ms_zelosmonteturnon);
+                    }
+                    if(page ==6) {
+                        is1 = getResources().openRawResource(R.raw.ms_eyman);
+                    }
+                    if(page ==7) {
+                        is1 = getResources().openRawResource(R.raw.ms_lachs);
+                    }
+
+                    fos = new FileOutputStream(soundfile);
+
+                    while((zwischenspeicher = is1.read(byte1)) > 0){
+
+                        fos.write(byte1, 0, zwischenspeicher);
+
+                    }
+                    is1.close();
+                    fos.close();
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                }
+
+                shareintent = new Intent(Intent.ACTION_SEND);
+                shareintent.setType("audio/*");
+                shareintent.putExtra(Intent.EXTRA_STREAM, urisound);
+                startActivity(Intent.createChooser(shareintent, "Sound teilen..."));
+
+                return true;
+
+            }
+        });
+
+        ms4.setOnLongClickListener(new View.OnLongClickListener() {
+            public boolean onLongClick(View v) {
+                if(! ordnerfile.exists()){
+
+                    try{
+                        ordnerfile.mkdir();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                try {
+
+                    if(page ==1) {
+                        is1 = getResources().openRawResource(R.raw.ms_frechdachs);
+                    }
+                    if(page ==2) {
+                        is1 = getResources().openRawResource(R.raw.ms_lenakannsnicht);
+                    }
+                    if(page ==3) {
+                        is1 = getResources().openRawResource(R.raw.ms_nochniegesehen);
+                    }
+                    if(page ==4) {
+                        is1 = getResources().openRawResource(R.raw.ms_sweep);
+                    }
+                    if(page ==5) {
+                        is1 = getResources().openRawResource(R.raw.ms_zelosred);
+                    }
+                    if(page ==6) {
+                        is1 = getResources().openRawResource(R.raw.ms_stellung);
+                    }
+                    if(page ==7) {
+                        is1 = getResources().openRawResource(R.raw.ms_ohgott);
+                    }
+
+                    fos = new FileOutputStream(soundfile);
+
+                    while((zwischenspeicher = is1.read(byte1)) > 0){
+
+                        fos.write(byte1, 0, zwischenspeicher);
+
+                    }
+                    is1.close();
+                    fos.close();
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                }
+
+                shareintent = new Intent(Intent.ACTION_SEND);
+                shareintent.setType("audio/*");
+                shareintent.putExtra(Intent.EXTRA_STREAM, urisound);
+                startActivity(Intent.createChooser(shareintent, "Sound teilen..."));
+
+                return true;
+
+            }
+        });
+
+        ms5.setOnLongClickListener(new View.OnLongClickListener() {
+            public boolean onLongClick(View v) {
+
+                if(! ordnerfile.exists()){
+
+                    try{
+                        ordnerfile.mkdir();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                try {
+
+                    if(page ==1) {
+                        is1 = getResources().openRawResource(R.raw.ms_krank1);
+                    }
+                    if(page ==2) {
+                        is1 = getResources().openRawResource(R.raw.ms_lenalachen);
+                    }
+                    if(page ==3) {
+                        is1 = getResources().openRawResource(R.raw.ms_noobsschwitzen);
+                    }
+                    if(page ==4) {
+                        is1 = getResources().openRawResource(R.raw.ms_tarnheli);
+                    }
+                    if(page ==5) {
+                        is1 = getResources().openRawResource(R.raw.ms_zelossauberman);
+                    }
+                    if(page ==6) {
+                        is1 = getResources().openRawResource(R.raw.ms_ausraster1);
+                    }
+                    if(page ==7) {
+                        is1 = getResources().openRawResource(R.raw.ms_verabschiedung);
+                    }
+
+
+                    fos = new FileOutputStream(soundfile);
+
+                    while((zwischenspeicher = is1.read(byte1)) > 0){
+
+                        fos.write(byte1, 0, zwischenspeicher);
+
+                    }
+                    is1.close();
+                    fos.close();
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                }
+
+                shareintent = new Intent(Intent.ACTION_SEND);
+                shareintent.setType("audio/*");
+                shareintent.putExtra(Intent.EXTRA_STREAM, urisound);
+                startActivity(Intent.createChooser(shareintent, "Sound teilen..."));
+
+
+                return true;
+
+            }
+        });
+
+        ms6.setOnLongClickListener(new View.OnLongClickListener() {
+            public boolean onLongClick(View v) {
+                if(! ordnerfile.exists()){
+
+                    try{
+                        ordnerfile.mkdir();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                try {
+
+                    if(page ==1) {
+                        is1 = getResources().openRawResource(R.raw.ms_krank2);
+                    }
+                    if(page ==2) {
+                        is1 = getResources().openRawResource(R.raw.ms_marcelsingt1);
+                    }
+                    if(page ==3) {
+                        is1 = getResources().openRawResource(R.raw.ms_onlyflinkehaende);
+                    }
+                    if(page ==4) {
+                        is1 = getResources().openRawResource(R.raw.ms_wasistmitdenleutenlos);
+                    }
+                    if(page ==5) {
+                        is1 = getResources().openRawResource(R.raw.ms_tot1vor);
+                    }
+                    if(page ==6) {
+                        is1 = getResources().openRawResource(R.raw.ms_ohoh);
+                    }
+                    if(page ==7) {
+                        is1 = getResources().openRawResource(R.raw.ms_wuup);
+                    }
+
+                    fos = new FileOutputStream(soundfile);
+
+                    while((zwischenspeicher = is1.read(byte1)) > 0){
+
+                        fos.write(byte1, 0, zwischenspeicher);
+
+                    }
+                    is1.close();
+                    fos.close();
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                }
+
+                shareintent = new Intent(Intent.ACTION_SEND);
+                shareintent.setType("audio/*");
+                shareintent.putExtra(Intent.EXTRA_STREAM, urisound);
+                startActivity(Intent.createChooser(shareintent, "Sound teilen..."));
+
+
+                return true;
+
+            }
+        });
+
+    }
+
 
     public void ms_b1(View view){
         if(page == 1)
@@ -500,36 +817,43 @@ public class Marcelscorpion extends ActionBarActivity {
             setContentView(R.layout.marcelscorpion);
             setPage();
             setText();
+            marcelscorpion_share();
         }
         if(page == 2){
             setContentView(R.layout.marcelscorpion);
             setPage();
             setText();
+            marcelscorpion_share();
         }
         if(page == 3){
             setContentView(R.layout.marcelscorpion);
             setPage();
             setText();
+            marcelscorpion_share();
         }
         if(page == 4){
             setContentView(R.layout.marcelscorpion);
             setPage();
             setText();
+            marcelscorpion_share();
         }
         if(page == 5){
             setContentView(R.layout.marcelscorpion);
             setPage();
             setText();
+            marcelscorpion_share();
         }
         if(page == 6){
             setContentView(R.layout.marcelscorpion);
             setPage();
             setText();
+            marcelscorpion_share();
         }
         if(page == 7){
             setContentView(R.layout.marcelscorpion);
             setPage();
             setText();
+            marcelscorpion_share();
         }
         if(page == 8){
             setContentView(R.layout.marcelscorpion_info);
@@ -544,36 +868,43 @@ public class Marcelscorpion extends ActionBarActivity {
             setContentView(R.layout.marcelscorpion);
             setPage();
             setText();
+            marcelscorpion_share();
         }
-        if(page == 2){
+        if(page == 2) {
             setContentView(R.layout.marcelscorpion);
             setPage();
             setText();
+            marcelscorpion_share();
         }
         if(page == 3){
             setContentView(R.layout.marcelscorpion);
             setPage();
             setText();
+            marcelscorpion_share();
         }
         if(page == 4){
             setContentView(R.layout.marcelscorpion);
             setPage();
             setText();
+            marcelscorpion_share();
         }
         if(page == 5){
             setContentView(R.layout.marcelscorpion);
             setPage();
             setText();
+            marcelscorpion_share();
         }
         if(page == 6){
             setContentView(R.layout.marcelscorpion);
             setPage();
             setText();
+            marcelscorpion_share();
         }
         if(page == 7){
             setContentView(R.layout.marcelscorpion);
             setPage();
             setText();
+            marcelscorpion_share();
         }
         if(page == 0){
             setContentView(R.layout.marcelscorpion_info);
@@ -586,6 +917,7 @@ public class Marcelscorpion extends ActionBarActivity {
         page = 1;
         setPage();
         setText();
+
     }
 
     public void msinfo_back(View view){
@@ -593,6 +925,7 @@ public class Marcelscorpion extends ActionBarActivity {
         page = 7;
         setPage();
         setText();
+
     }
 
     public void setPage()

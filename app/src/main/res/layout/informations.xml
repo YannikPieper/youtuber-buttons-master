@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#4aa024">
+    android:background="@drawable/dust1">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -24,12 +24,14 @@
             android:layout_height="wrap_content"
             android:text="twitter.com/EasterEggDev"
             android:id="@+id/button13"
+            android:background="@drawable/twitterbtn"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             style="@style/TextAppearance.AppCompat.Display1"
             android:textSize="14dp"
-            android:onClick="twitter"/>
+            android:onClick="twitter"
+            android:textColor="#F65200" />
     </LinearLayout>
 
     <LinearLayout
@@ -51,12 +53,14 @@
             android:layout_height="wrap_content"
             android:text="facebook.com/eastereggdev"
             android:id="@+id/button14"
+            android:background="@drawable/fbbuttongo"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             style="@style/TextAppearance.AppCompat.Display1"
             android:textSize="14dp"
-            android:onClick="facebook"/>
+            android:onClick="facebook"
+            android:textColor="#F65200" />
     </LinearLayout>
 
     <LinearLayout
@@ -78,12 +82,14 @@
             android:layout_height="wrap_content"
             android:text="eastereggdevelopment.com"
             android:id="@+id/button15"
+            android:background="@drawable/homepagebtn"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             style="@style/TextAppearance.AppCompat.Display1"
             android:textSize="14dp"
-            android:onClick="website"/>
+            android:onClick="website"
+            android:textColor="#F65200" />
     </LinearLayout>
 
     <LinearLayout
@@ -105,10 +111,44 @@
             android:layout_height="wrap_content"
             android:text="Eastereggdev@gmail.com"
             android:id="@+id/button16"
+            android:background="@drawable/emailbtn"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             style="@style/TextAppearance.AppCompat.Display1"
-            android:textSize="14dp" />
+            android:textSize="14dp"
+            android:textColor="#F65200" />
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Wir sind Easter Egg Development!"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal"
+        style="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="25dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center_horizontal"
+        android:textColor="#F65200"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Du willst mehr über uns erfahren? Dann folge uns doch einfach auf den Social Media Plattformen!"
+        android:id="@+id/textView5"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:textSize="20dp"
+        android:textColor="#F65200"
+        android:textStyle="italic" />
+
 </LinearLayout>

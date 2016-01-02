@@ -4,13 +4,19 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.jonathan.TubeButtons.R;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 
 
 public class Inscope extends ActionBarActivity {
@@ -19,99 +25,29 @@ public class Inscope extends ActionBarActivity {
     private int page = 1;
     private TextView Page;
     private MediaPlayer mp = new MediaPlayer();
-    private boolean fav1 = false;
-    private boolean fav2 = false;
-    private boolean fav3 = false;
-    private boolean fav4 = false;
-    private boolean fav5 = false;
-    private boolean fav6 = false;
+
+    public String ordnerpfad = Environment.getExternalStorageDirectory() + "/TubeSounds";
+    public String soundpfad = ordnerpfad + "/sound.mp3";
+    public File ordnerfile = new File(ordnerpfad);
+    public File soundfile = new File(soundpfad);
+    public Uri urisound = Uri.parse(soundpfad);
+    public byte[] byte1 = new byte[1024];
+    public int zwischenspeicher = 0;
+    public InputStream ins1;
+    public FileOutputStream fos;
+
+    public Intent shareintent;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inscope);
         setTitle("Inscope21");
+
+        inscope_share();
     }
 
-    public void is_fav(View view){
-        switch (view.getId())
-        {
-            case R.id.is_fav1:
-                ImageButton isfav1 = (ImageButton) findViewById(R.id.is_fav1);
-                if(fav1 == false) {
-                    isfav1.setBackgroundResource(R.drawable.fav_voll);
-                    fav1 = true;
-                    break;
-                }
-                if(fav1 == true) {
-                    isfav1.setBackgroundResource(R.drawable.fav_leer);
-                    fav1 = false;
-                    break;
-                }
-            case R.id.is_fav2:
-                ImageButton isfav2 = (ImageButton) findViewById(R.id.is_fav2);
-                if(fav2 == false) {
-                    isfav2.setBackgroundResource(R.drawable.fav_voll);
-                    fav2 = true;
-                    break;
-                }
-                if(fav2 == true) {
-                    isfav2.setBackgroundResource(R.drawable.fav_leer);
-                    fav2 = false;
-                    break;
-                }
-
-            case R.id.is_fav3:
-                ImageButton isfav3 = (ImageButton) findViewById(R.id.is_fav3);
-                if(fav3 == false) {
-                    isfav3.setBackgroundResource(R.drawable.fav_voll);
-                    fav3 = true;
-                    break;
-                }
-                if(fav3 == true) {
-                    isfav3.setBackgroundResource(R.drawable.fav_leer);
-                    fav3 = false;
-                    break;
-                }
-
-            case R.id.is_fav4:
-                ImageButton isfav4 = (ImageButton) findViewById(R.id.is_fav4);
-                if(fav4 == false) {
-                    isfav4.setBackgroundResource(R.drawable.fav_voll);
-                    fav4 = true;
-                    break;
-                }
-                if(fav4 == true) {
-                    isfav4.setBackgroundResource(R.drawable.fav_leer);
-                    fav4 = false;
-                    break;
-                }
-            case R.id.is_fav5:
-                ImageButton isfav5 = (ImageButton) findViewById(R.id.is_fav5);
-                if(fav5 == false) {
-                    isfav5.setBackgroundResource(R.drawable.fav_voll);
-                    fav5 = true;
-                    break;
-                }
-                if(fav5 == true) {
-                    isfav5.setBackgroundResource(R.drawable.fav_leer);
-                    fav5 = false;
-                    break;
-                }
-            case R.id.is_fav6:
-                ImageButton isfav6 = (ImageButton) findViewById(R.id.is_fav6);
-                if(fav6 == false) {
-                    isfav6.setBackgroundResource(R.drawable.fav_voll);
-                    fav6 = true;
-                    break;
-                }
-                if(fav6 == true) {
-                    isfav6.setBackgroundResource(R.drawable.fav_leer);
-                    fav6 = false;
-                    break;
-                }
-        }
-    }
 
     public void setText(){
         if(page == 1){
@@ -189,6 +125,349 @@ public class Inscope extends ActionBarActivity {
             is5.setText("Juckt den nicht");
             is6.setText("Wo ihr recht habt");
         }
+    }
+
+    public void inscope_share(){
+        Button is1 = (Button) findViewById(R.id.inscope_b1);
+        Button is2 = (Button) findViewById(R.id.inscope_b2);
+        Button is3 = (Button) findViewById(R.id.inscope_b3);
+        Button is4 = (Button) findViewById(R.id.inscope_b4);
+        Button is5 = (Button) findViewById(R.id.inscope_b5);
+        Button is6 = (Button) findViewById(R.id.inscope_b6);
+
+
+        is1.setOnLongClickListener(new View.OnLongClickListener() {
+            public boolean onLongClick(View v) {
+                if(! ordnerfile.exists()){
+
+                    try{
+                        ordnerfile.mkdir();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                try {
+
+                    if(page ==1) {
+                        ins1 = getResources().openRawResource(R.raw.is_ereignisse);
+                    }
+                    if(page ==2) {
+                        ins1 = getResources().openRawResource(R.raw.is_eydigger);
+                    }
+                    if(page ==3) {
+                        ins1 = getResources().openRawResource(R.raw.is_laeuft);
+                    }
+                    if(page ==4) {
+                        ins1 = getResources().openRawResource(R.raw.is_traum);
+                    }
+                    if(page ==5) {
+                        ins1 = getResources().openRawResource(R.raw.is_fiat);
+                    }
+
+                    fos = new FileOutputStream(soundfile);
+
+                    while((zwischenspeicher = ins1.read(byte1)) > 0){
+
+                        fos.write(byte1, 0, zwischenspeicher);
+
+                    }
+                    ins1.close();
+                    fos.close();
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                }
+
+                shareintent = new Intent(Intent.ACTION_SEND);
+                shareintent.setType("audio/*");
+                shareintent.putExtra(Intent.EXTRA_STREAM, urisound);
+                startActivity(Intent.createChooser(shareintent, "Sound teilen..."));
+
+                return true;
+
+            }
+        });
+
+        is2.setOnLongClickListener(new View.OnLongClickListener() {
+            public boolean onLongClick(View v) {
+
+                if(! ordnerfile.exists()){
+
+                    try{
+                        ordnerfile.mkdir();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                try {
+
+                    if(page ==1) {
+                        ins1 = getResources().openRawResource(R.raw.is_abgenommen);
+                    }
+                    if(page ==2) {
+                        ins1 = getResources().openRawResource(R.raw.is_haltmaul);
+                    }
+                    if(page ==3) {
+                        ins1 = getResources().openRawResource(R.raw.is_licht);
+                    }
+                    if(page ==4) {
+                        ins1 = getResources().openRawResource(R.raw.is_trick);
+                    }
+                    if(page ==5) {
+                        ins1 = getResources().openRawResource(R.raw.is_gesagt);
+                    }
+
+                    fos = new FileOutputStream(soundfile);
+
+                    while((zwischenspeicher = ins1.read(byte1)) > 0){
+
+                        fos.write(byte1, 0, zwischenspeicher);
+
+                    }
+                    ins1.close();
+                    fos.close();
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                }
+
+                shareintent = new Intent(Intent.ACTION_SEND);
+                shareintent.setType("audio/*");
+                shareintent.putExtra(Intent.EXTRA_STREAM, urisound);
+                startActivity(Intent.createChooser(shareintent, "Sound teilen..."));
+
+                return true;
+
+            }
+        });
+
+        is3.setOnLongClickListener(new View.OnLongClickListener() {
+            public boolean onLongClick(View v) {
+                if(! ordnerfile.exists()){
+
+                    try{
+                        ordnerfile.mkdir();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                try {
+
+                    if(page ==1) {
+                        ins1 = getResources().openRawResource(R.raw.is_begruessung);
+                    }
+                    if(page ==2) {
+                        ins1 = getResources().openRawResource(R.raw.is_halzmaul);
+                    }
+                    if(page ==3) {
+                        ins1 = getResources().openRawResource(R.raw.is_mainstation);
+                    }
+                    if(page ==4) {
+                        ins1 = getResources().openRawResource(R.raw.is_trockenfruechte);
+                    }
+                    if(page ==5) {
+                        ins1 = getResources().openRawResource(R.raw.is_hhhhhh);
+                    }
+
+                    fos = new FileOutputStream(soundfile);
+
+                    while((zwischenspeicher = ins1.read(byte1)) > 0){
+
+                        fos.write(byte1, 0, zwischenspeicher);
+
+                    }
+                    ins1.close();
+                    fos.close();
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                }
+
+                shareintent = new Intent(Intent.ACTION_SEND);
+                shareintent.setType("audio/*");
+                shareintent.putExtra(Intent.EXTRA_STREAM, urisound);
+                startActivity(Intent.createChooser(shareintent, "Sound teilen..."));
+
+                return true;
+
+            }
+        });
+
+        is4.setOnLongClickListener(new View.OnLongClickListener() {
+            public boolean onLongClick(View v) {
+                if(! ordnerfile.exists()){
+
+                    try{
+                        ordnerfile.mkdir();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                try {
+
+                    if(page ==1) {
+                        ins1 = getResources().openRawResource(R.raw.is_cup);
+                    }
+                    if(page ==2) {
+                        ins1 = getResources().openRawResource(R.raw.is_idontgetit);
+                    }
+                    if(page ==3) {
+                        ins1 = getResources().openRawResource(R.raw.is_oppertunity);
+                    }
+                    if(page ==4) {
+                        ins1 = getResources().openRawResource(R.raw.is_umarmung);
+                    }
+                    if(page ==5) {
+                        ins1 = getResources().openRawResource(R.raw.is_ichmeine);
+                    }
+
+                    fos = new FileOutputStream(soundfile);
+
+                    while((zwischenspeicher = ins1.read(byte1)) > 0){
+
+                        fos.write(byte1, 0, zwischenspeicher);
+
+                    }
+                    ins1.close();
+                    fos.close();
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                }
+
+                shareintent = new Intent(Intent.ACTION_SEND);
+                shareintent.setType("audio/*");
+                shareintent.putExtra(Intent.EXTRA_STREAM, urisound);
+                startActivity(Intent.createChooser(shareintent, "Sound teilen..."));
+
+                return true;
+
+            }
+        });
+
+        is5.setOnLongClickListener(new View.OnLongClickListener() {
+            public boolean onLongClick(View v) {
+
+                if(! ordnerfile.exists()){
+
+                    try{
+                        ordnerfile.mkdir();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                try {
+
+                    if(page ==1) {
+                        ins1 = getResources().openRawResource(R.raw.is_derpunkt);
+                    }
+                    if(page ==2) {
+                        ins1 = getResources().openRawResource(R.raw.is_jaaber);
+                    }
+                    if(page ==3) {
+                        ins1 = getResources().openRawResource(R.raw.is_scheissebedarf);
+                    }
+                    if(page ==4) {
+                        ins1 = getResources().openRawResource(R.raw.is_verpissdich);
+                    }
+                    if(page ==5) {
+                        ins1 = getResources().openRawResource(R.raw.is_jucktdennich);
+                    }
+                    fos = new FileOutputStream(soundfile);
+
+                    while((zwischenspeicher = ins1.read(byte1)) > 0){
+
+                        fos.write(byte1, 0, zwischenspeicher);
+
+                    }
+                    ins1.close();
+                    fos.close();
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                }
+
+                shareintent = new Intent(Intent.ACTION_SEND);
+                shareintent.setType("audio/*");
+                shareintent.putExtra(Intent.EXTRA_STREAM, urisound);
+                startActivity(Intent.createChooser(shareintent, "Sound teilen..."));
+
+
+                return true;
+
+            }
+        });
+
+        is6.setOnLongClickListener(new View.OnLongClickListener() {
+            public boolean onLongClick(View v) {
+                if(! ordnerfile.exists()){
+
+                    try{
+                        ordnerfile.mkdir();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                try {
+
+                    if(page ==1) {
+                        ins1 = getResources().openRawResource(R.raw.is_ergebniss);
+                    }
+                    if(page ==2) {
+                        ins1 = getResources().openRawResource(R.raw.is_wahrscheinlich);
+                    }
+                    if(page ==3) {
+                        ins1 = getResources().openRawResource(R.raw.is_simon);
+                    }
+                    if(page ==4) {
+                        ins1 = getResources().openRawResource(R.raw.is_verpissen);
+                    }
+                    if(page ==5) {
+                        ins1 = getResources().openRawResource(R.raw.is_woihrrechthabt);
+                    }
+                    fos = new FileOutputStream(soundfile);
+
+                    while((zwischenspeicher = ins1.read(byte1)) > 0){
+
+                        fos.write(byte1, 0, zwischenspeicher);
+
+                    }
+                    ins1.close();
+                    fos.close();
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                }
+
+                shareintent = new Intent(Intent.ACTION_SEND);
+                shareintent.setType("audio/*");
+                shareintent.putExtra(Intent.EXTRA_STREAM, urisound);
+                startActivity(Intent.createChooser(shareintent, "Sound teilen..."));
+
+
+                return true;
+
+            }
+        });
+
     }
 
     public void is_b1(View view){
@@ -395,26 +674,31 @@ public class Inscope extends ActionBarActivity {
             setContentView(R.layout.inscope);
             setPage();
             setText();
+            inscope_share();
         }
         if(page == 2){
             setContentView(R.layout.inscope);
             setPage();
             setText();
+            inscope_share();
         }
         if(page == 3){
             setContentView(R.layout.inscope);
             setPage();
             setText();
+            inscope_share();
         }
         if(page == 4){
             setContentView(R.layout.inscope);
             setPage();
             setText();
+            inscope_share();
         }
         if(page == 5){
             setContentView(R.layout.inscope);
             setPage();
             setText();
+            inscope_share();
         }
         if(page == 6){
             setContentView(R.layout.inscope_info);
@@ -429,26 +713,31 @@ public class Inscope extends ActionBarActivity {
             setContentView(R.layout.inscope);
             setPage();
             setText();
+            inscope_share();
         }
         if(page == 2){
             setContentView(R.layout.inscope);
             setPage();
             setText();
+            inscope_share();
         }
         if(page == 3){
             setContentView(R.layout.inscope);
             setPage();
             setText();
+            inscope_share();
         }
         if(page == 4){
             setContentView(R.layout.inscope);
             setPage();
             setText();
+            inscope_share();
         }
         if(page == 5){
             setContentView(R.layout.inscope);
             setPage();
             setText();
+            inscope_share();
         }
         if(page == 0){
             setContentView(R.layout.inscope_info);

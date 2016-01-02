@@ -1,11 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:layout_width="match_parent" android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#607D8B">
+    android:background="@drawable/sternenhimmel">
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="1"
+            android:id="@+id/av1"
+            android:background="@drawable/adventbtn"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:onClick="adv1"
+            style="@style/TextAppearance.AppCompat.Display1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="2"
+            android:background="@drawable/adventbtn"
+            android:id="@+id/av2"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:onClick="adv2"
+            style="@style/TextAppearance.AppCompat.Display1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="3"
+            android:background="@drawable/adventbtn"
+            android:id="@+id/av3"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:onClick="adv3"
+            style="@style/TextAppearance.AppCompat.Display1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="4"
+            android:background="@drawable/adventbtn"
+            android:id="@+id/av4"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:onClick="adv4"
+            style="@style/TextAppearance.AppCompat.Display1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="5"
+            android:background="@drawable/adventbtn"
+            android:id="@+id/av5"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:onClick="adv5"
+            style="@style/TextAppearance.AppCompat.Display1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="6"
+            android:background="@drawable/adventbtn"
+            android:id="@+id/av6"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:onClick="adv6"
+            style="@style/TextAppearance.AppCompat.Display1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="7"
+            android:background="@drawable/adventbtn"
+            android:id="@+id/av7"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:onClick="adv7"
+            style="@style/TextAppearance.AppCompat.Display1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="8"
+            android:background="@drawable/adventbtn"
+            android:id="@+id/av8"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:onClick="adv8"
+            style="@style/TextAppearance.AppCompat.Display1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.12"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="9"
+            android:background="@drawable/adventbtn"
+            android:id="@+id/av9"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:onClick="adv9"
+            style="@style/TextAppearance.AppCompat.Display1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="10"
+            android:background="@drawable/adventbtn"
+            android:id="@+id/av10"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:onClick="adv10"
+            style="@style/TextAppearance.AppCompat.Display1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="11"
+            android:background="@drawable/adventbtn"
+            android:id="@+id/av11"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:onClick="adv11"
+            style="@style/TextAppearance.AppCompat.Display1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="12"
+            android:background="@drawable/adventbtn"
+            android:id="@+id/av12"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:onClick="adv12"
+            style="@style/TextAppearance.AppCompat.Display1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp">
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="13"
+            android:background="@drawable/adventbtn"
+            android:id="@+id/av13"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:onClick="adv13"
+            style="@style/TextAppearance.AppCompat.Display1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="14"
+            android:background="@drawable/adventbtn"
+            android:id="@+id/av14"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:onClick="adv14"
+            style="@style/TextAppearance.AppCompat.Display1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="15"
+            android:background="@drawable/adventbtn"
+            android:id="@+id/av15"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:onClick="adv15"
+            style="@style/TextAppearance.AppCompat.Display1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="16"
+            android:background="@drawable/adventbtn"
+            android:id="@+id/av16"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:onClick="adv16"
+            style="@style/TextAppearance.AppCompat.Display1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.10"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="17"
+            android:background="@drawable/adventbtn"
+            android:id="@+id/av17"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:onClick="adv17"
+            style="@style/TextAppearance.AppCompat.Display1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="18"
+            android:background="@drawable/adventbtn"
+            android:id="@+id/av18"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:onClick="adv18"
+            style="@style/TextAppearance.AppCompat.Display1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="19"
+            android:background="@drawable/adventbtn"
+            android:id="@+id/av19"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:onClick="adv19"
+            style="@style/TextAppearance.AppCompat.Display1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="20"
+            android:background="@drawable/adventbtn"
+            android:id="@+id/av20"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:onClick="adv20"
+            style="@style/TextAppearance.AppCompat.Display1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="21"
+            android:background="@drawable/adventbtn"
+            android:id="@+id/av21"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:onClick="adv21"
+            style="@style/TextAppearance.AppCompat.Display1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="22"
+            android:background="@drawable/adventbtn"
+            android:id="@+id/av22"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:onClick="adv22"
+            style="@style/TextAppearance.AppCompat.Display1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="23"
+            android:background="@drawable/adventbtn"
+            android:id="@+id/av23"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:onClick="adv23"
+            style="@style/TextAppearance.AppCompat.Display1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="24"
+            android:background="@drawable/adventbtn24"
+            android:id="@+id/av24"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:onClick="adv24"
+            style="@style/TextAppearance.AppCompat.Display1" />
+    </LinearLayout>
 
 </LinearLayout>

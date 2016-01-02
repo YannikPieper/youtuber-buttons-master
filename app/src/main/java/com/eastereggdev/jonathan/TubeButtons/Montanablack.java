@@ -4,113 +4,47 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.jonathan.TubeButtons.R;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 
 
 public class Montanablack extends ActionBarActivity {
     private MediaPlayer mp = new MediaPlayer();
     private int page = 1;
-    private boolean fav1 = false;
-    private boolean fav2 = false;
-    private boolean fav3 = false;
-    private boolean fav4 = false;
-    private boolean fav5 = false;
-    private boolean fav6 = false;
-    private TextView Page;
+
+    public String ordnerpfad = Environment.getExternalStorageDirectory() + "/TubeSounds";
+    public String soundpfad = ordnerpfad + "/sound.mp3";
+    public File ordnerfile = new File(ordnerpfad);
+    public File soundfile = new File(soundpfad);
+    public Uri urisound = Uri.parse(soundpfad);
+    public byte[] byte1 = new byte[1024];
+    public int zwischenspeicher = 0;
+    public InputStream is1;
+    public FileOutputStream fos;
+
+    public Intent shareintent;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.montanablack);
         setTitle("Montanablack");
 
-
+        montanablack_share();
     }
 
-    public void mb_fav(View view){
-        switch (view.getId())
-        {
-            case R.id.mb_fav1:
-                ImageButton mbfav1 = (ImageButton) findViewById(R.id.mb_fav1);
-                if(fav1 == false) {
-                    mbfav1.setBackgroundResource(R.drawable.fav_voll); //man muss zwei mal drücken wenn man auf der seite davor schon durch drücken fav1 auf true gesetzt hat da nur der button registriert wird und nicht die seite...
-                    fav1 = true;
-                    break;
-                }
-                if(fav1 == true) {
-                    mbfav1.setBackgroundResource(R.drawable.fav_leer);
-                    fav1 = false;
-                    break;
-                }
-            case R.id.mb_fav2:
-                ImageButton mbfav2 = (ImageButton) findViewById(R.id.mb_fav2);
-                if(fav2 == false) {
-                    mbfav2.setBackgroundResource(R.drawable.fav_voll);
-                    fav2 = true;
-                    break;
-                }
-                if(fav2 == true) {
-                    mbfav2.setBackgroundResource(R.drawable.fav_leer);
-                    fav2 = false;
-                    break;
-                }
-
-            case R.id.mb_fav3:
-                ImageButton mbfav3 = (ImageButton) findViewById(R.id.mb_fav3);
-                if(fav3 == false) {
-                    mbfav3.setBackgroundResource(R.drawable.fav_voll);
-                    fav3 = true;
-                    break;
-                }
-                if(fav3 == true) {
-                    mbfav3.setBackgroundResource(R.drawable.fav_leer);
-                    fav3 = false;
-                    break;
-                }
-
-            case R.id.mb_fav4:
-                ImageButton mbfav4 = (ImageButton) findViewById(R.id.mb_fav4);
-                if(fav4 == false) {
-                    mbfav4.setBackgroundResource(R.drawable.fav_voll);
-                    fav4 = true;
-                    break;
-                }
-                if(fav4 == true) {
-                    mbfav4.setBackgroundResource(R.drawable.fav_leer);
-                    fav4 = false;
-                    break;
-                }
-            case R.id.mb_fav5:
-                ImageButton mbfav5 = (ImageButton) findViewById(R.id.mb_fav5);
-                if(fav5 == false) {
-                    mbfav5.setBackgroundResource(R.drawable.fav_voll);
-                    fav5 = true;
-                    break;
-                }
-                if(fav5 == true) {
-                    mbfav5.setBackgroundResource(R.drawable.fav_leer);
-                    fav5 = false;
-                    break;
-                }
-            case R.id.mb_fav6:
-                ImageButton mbfav6 = (ImageButton) findViewById(R.id.mb_fav6);
-                if(fav6 == false) {
-                    mbfav6.setBackgroundResource(R.drawable.fav_voll);
-                    fav6 = true;
-                    break;
-                }
-                if(fav6 == true) {
-                    mbfav6.setBackgroundResource(R.drawable.fav_leer);
-                    fav6 = false;
-                    break;
-                }
-        }
-    }
 
     public void setText(){
         if(page == 1){
@@ -173,6 +107,333 @@ public class Montanablack extends ActionBarActivity {
             mb5.setText("Aktiv");
             mb6.setText("5 gegen Willi");
         }
+    }
+
+    public void montanablack_share(){
+        Button mb1 = (Button) findViewById(R.id.montanablack_b1);
+        Button mb2 = (Button) findViewById(R.id.montanablack_b2);
+        Button mb3 = (Button) findViewById(R.id.montanablack_b3);
+        Button mb4 = (Button) findViewById(R.id.montanablack_b4);
+        Button mb5 = (Button) findViewById(R.id.montanablack_b5);
+        Button mb6 = (Button) findViewById(R.id.montanablack_b6);
+
+
+        mb1.setOnLongClickListener(new View.OnLongClickListener() {
+            public boolean onLongClick(View v) {
+                if(! ordnerfile.exists()){
+
+                    try{
+                        ordnerfile.mkdir();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                try {
+
+                    if(page ==1) {
+                        is1 = getResources().openRawResource(R.raw.mb_moinmoin);
+                    }
+                    if(page ==2) {
+                        is1 = getResources().openRawResource(R.raw.mb_isklar);
+                    }
+                    if(page ==3) {
+                        is1 = getResources().openRawResource(R.raw.mb_nicespawn);
+                    }
+                    if(page ==4) {
+                        is1 = getResources().openRawResource(R.raw.mb_trol);
+                    }
+
+                    fos = new FileOutputStream(soundfile);
+
+                    while((zwischenspeicher = is1.read(byte1)) > 0){
+
+                        fos.write(byte1, 0, zwischenspeicher);
+
+                    }
+                    is1.close();
+                    fos.close();
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                }
+
+                shareintent = new Intent(Intent.ACTION_SEND);
+                shareintent.setType("audio/*");
+                shareintent.putExtra(Intent.EXTRA_STREAM, urisound);
+                startActivity(Intent.createChooser(shareintent, "Sound teilen..."));
+
+                return true;
+
+            }
+        });
+
+        mb2.setOnLongClickListener(new View.OnLongClickListener() {
+            public boolean onLongClick(View v) {
+
+                if(! ordnerfile.exists()){
+
+                    try{
+                        ordnerfile.mkdir();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                try {
+
+                    if(page ==1) {
+                        is1 = getResources().openRawResource(R.raw.mb_after);
+                    }
+                    if(page ==2) {
+                        is1 = getResources().openRawResource(R.raw.mb_kundenhotline);
+                    }
+                    if(page ==3) {
+                        is1 = getResources().openRawResource(R.raw.mb_ohh);
+                    }
+                    if(page ==4) {
+                        is1 = getResources().openRawResource(R.raw.mb_uiui);
+                    }
+
+                    fos = new FileOutputStream(soundfile);
+
+                    while((zwischenspeicher = is1.read(byte1)) > 0){
+
+                        fos.write(byte1, 0, zwischenspeicher);
+
+                    }
+                    is1.close();
+                    fos.close();
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                }
+
+                shareintent = new Intent(Intent.ACTION_SEND);
+                shareintent.setType("audio/*");
+                shareintent.putExtra(Intent.EXTRA_STREAM, urisound);
+                startActivity(Intent.createChooser(shareintent, "Sound teilen..."));
+
+                return true;
+
+            }
+        });
+
+        mb3.setOnLongClickListener(new View.OnLongClickListener() {
+            public boolean onLongClick(View v) {
+                if(! ordnerfile.exists()){
+
+                    try{
+                        ordnerfile.mkdir();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                try {
+
+                    if(page ==1) {
+                        is1 = getResources().openRawResource(R.raw.mb_erstesmal);
+                    }
+                    if(page ==2) {
+                        is1 = getResources().openRawResource(R.raw.mb_lache);
+                    }
+                    if(page ==3) {
+                        is1 = getResources().openRawResource(R.raw.mb_omg);
+                    }
+                    if(page ==4) {
+                        is1 = getResources().openRawResource(R.raw.mb_vorraete);
+                    }
+
+                    fos = new FileOutputStream(soundfile);
+
+                    while((zwischenspeicher = is1.read(byte1)) > 0){
+
+                        fos.write(byte1, 0, zwischenspeicher);
+
+                    }
+                    is1.close();
+                    fos.close();
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                }
+
+                shareintent = new Intent(Intent.ACTION_SEND);
+                shareintent.setType("audio/*");
+                shareintent.putExtra(Intent.EXTRA_STREAM, urisound);
+                startActivity(Intent.createChooser(shareintent, "Sound teilen..."));
+
+                return true;
+
+            }
+        });
+
+        mb4.setOnLongClickListener(new View.OnLongClickListener() {
+            public boolean onLongClick(View v) {
+                if(! ordnerfile.exists()){
+
+                    try{
+                        ordnerfile.mkdir();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                try {
+
+                    if(page ==1) {
+                        is1 = getResources().openRawResource(R.raw.mb_hurensohn);
+                    }
+                    if(page ==2) {
+                        is1 = getResources().openRawResource(R.raw.mb_lache2);
+                    }
+                    if(page ==3) {
+                        is1 = getResources().openRawResource(R.raw.mb_pizza);
+                    }
+                    if(page ==4) {
+                        is1 = getResources().openRawResource(R.raw.mb_bug);
+                    }
+
+                    fos = new FileOutputStream(soundfile);
+
+                    while((zwischenspeicher = is1.read(byte1)) > 0){
+
+                        fos.write(byte1, 0, zwischenspeicher);
+
+                    }
+                    is1.close();
+                    fos.close();
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                }
+
+                shareintent = new Intent(Intent.ACTION_SEND);
+                shareintent.setType("audio/*");
+                shareintent.putExtra(Intent.EXTRA_STREAM, urisound);
+                startActivity(Intent.createChooser(shareintent, "Sound teilen..."));
+
+                return true;
+
+            }
+        });
+
+        mb5.setOnLongClickListener(new View.OnLongClickListener() {
+            public boolean onLongClick(View v) {
+
+                if(! ordnerfile.exists()){
+
+                    try{
+                        ordnerfile.mkdir();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                try {
+
+                    if(page ==1) {
+                        is1 = getResources().openRawResource(R.raw.mb_hurensohn2);
+                    }
+                    if(page ==2) {
+                        is1 = getResources().openRawResource(R.raw.mb_messerihn);
+                    }
+                    if(page ==3) {
+                        is1 = getResources().openRawResource(R.raw.mb_porno);
+                    }
+                    if(page ==4) {
+                        is1 = getResources().openRawResource(R.raw.mb_aktiv);
+                    }
+
+                    fos = new FileOutputStream(soundfile);
+
+                    while((zwischenspeicher = is1.read(byte1)) > 0){
+
+                        fos.write(byte1, 0, zwischenspeicher);
+
+                    }
+                    is1.close();
+                    fos.close();
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                }
+
+                shareintent = new Intent(Intent.ACTION_SEND);
+                shareintent.setType("audio/*");
+                shareintent.putExtra(Intent.EXTRA_STREAM, urisound);
+                startActivity(Intent.createChooser(shareintent, "Sound teilen..."));
+
+
+                return true;
+
+            }
+        });
+
+        mb6.setOnLongClickListener(new View.OnLongClickListener() {
+            public boolean onLongClick(View v) {
+                if(! ordnerfile.exists()){
+
+                    try{
+                        ordnerfile.mkdir();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                try {
+
+                    if(page ==1) {
+                        is1 = getResources().openRawResource(R.raw.mb_hurensohn3);
+                    }
+                    if(page ==2) {
+                        is1 = getResources().openRawResource(R.raw.mb_nein);
+                    }
+                    if(page ==3) {
+                        is1 = getResources().openRawResource(R.raw.mb_schleifendehoden);
+                    }
+                    if(page ==4) {
+                        is1 = getResources().openRawResource(R.raw.mb_5vswilli);
+                    }
+
+                    fos = new FileOutputStream(soundfile);
+
+                    while((zwischenspeicher = is1.read(byte1)) > 0){
+
+                        fos.write(byte1, 0, zwischenspeicher);
+
+                    }
+                    is1.close();
+                    fos.close();
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Error, please try again", Toast.LENGTH_SHORT).show();
+                }
+
+                shareintent = new Intent(Intent.ACTION_SEND);
+                shareintent.setType("audio/*");
+                shareintent.putExtra(Intent.EXTRA_STREAM, urisound);
+                startActivity(Intent.createChooser(shareintent, "Sound teilen..."));
+
+
+                return true;
+
+            }
+        });
+
     }
 
     public void mb_b1(View view){
@@ -349,21 +610,25 @@ public class Montanablack extends ActionBarActivity {
             setContentView(R.layout.montanablack);
             setPage();
             setText();
+            montanablack_share();
         }
         if(page == 2){
             setContentView(R.layout.montanablack);
             setPage();
             setText();
+            montanablack_share();
         }
         if(page == 3){
             setContentView(R.layout.montanablack);
             setPage();
             setText();
+            montanablack_share();
         }
         if(page == 4){
             setContentView(R.layout.montanablack);
             setPage();
             setText();
+            montanablack_share();
         }
         if(page == 5){
             setContentView(R.layout.montanablack_info);
@@ -378,21 +643,25 @@ public class Montanablack extends ActionBarActivity {
             setContentView(R.layout.montanablack);
             setPage();
             setText();
+            montanablack_share();
         }
         if(page == 2){
             setContentView(R.layout.montanablack);
             setPage();
             setText();
+            montanablack_share();
         }
         if(page == 3){
             setContentView(R.layout.montanablack);
             setPage();
             setText();
+            montanablack_share();
         }
         if(page == 4){
             setContentView(R.layout.montanablack);
             setPage();
             setText();
+            montanablack_share();
         }
         if(page == 0){
             setContentView(R.layout.montanablack_info);

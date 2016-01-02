@@ -1,13 +1,9 @@
 package com.eastereggdev.jonathan.TubeButtons;
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.media.MediaPlayer;
+import android.net.Uri;
+import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -19,10 +15,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.eastereggdev.jonathan.TubeButtons.Elotrix;
-import com.eastereggdev.jonathan.TubeButtons.Montanablack;
 import com.example.jonathan.TubeButtons.R;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.util.Random;
 
 
@@ -35,18 +32,149 @@ public class MainActivity extends ActionBarActivity {
     int mbicon = R.drawable.mbicon;
     int isicon = R.drawable.isicon;
     int eticon = R.drawable.eticon;
+    int ksicon = R.drawable.ksicon;
     private LinearLayout ytlist;
     private static final int NOTIFICATION_ID = 0;
 
-    int update;
-    int yt = 0;
+    Button YouTuber;
+    int yTuber = 0;
+    int yt = 5;
     int rumNum;
+    int rumNum2;
     private MediaPlayer mp = new MediaPlayer();
+
+    public String ordnerpfad = Environment.getExternalStorageDirectory() + "/TubeSounds";
+    public String soundpfad = ordnerpfad + "/sound.mp3";
+    public File ordnerfile = new File(ordnerpfad);
+    public File soundfile = new File(soundpfad);
+    public Uri urisound = Uri.parse(soundpfad);
+    public byte[] byte1 = new byte[1024];
+    public int zwischenspeicher = 0;
+    public InputStream is1;
+    public FileOutputStream fos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.youtuber_list);
+        setContentView(R.layout.menu);
+
+        setInfoText();
+    }
+
+    public void next(View view){
+        if(yTuber < 5) {
+            yTuber++;
+        }else {
+            yTuber = 0;
+        }
+        setYoutuber();
+        setInfoText();
+    }
+
+    public void back(View view){
+        if(yTuber > 0){
+            yTuber--;
+        } else {
+            yTuber = 5;
+        }
+        setYoutuber();
+        setInfoText();
+    }
+
+    public void setYoutuber(){
+        Button YouTuber = (Button) findViewById(R.id.youtuber);
+        TextView yURL = (TextView) findViewById(R.id.yURL);
+        ytView = (ImageView) findViewById(R.id.yt_icon);
+        soundboard = (Button) findViewById(R.id.sounds);
+
+        if(yTuber == 0){
+            YouTuber.setText("Elotrix");
+            yURL.setText("https://www.youtube.com/user/ELoTRiXHDx");
+            ytView.setImageResource(eticon);
+            soundboard.setText("Elotrix Sounds");
+            yt = 5;
+        }
+        if(yTuber == 1){
+            YouTuber.setText("Marcelscorpion");
+            yURL.setText("https://www.youtube.com/user/marcelscorpion");
+            ytView.setImageResource(msicon);
+            soundboard.setText("Marcelscorpion Sounds");
+            yt = 1;
+        }
+        if(yTuber == 2){
+            YouTuber.setText("Montanablack");
+            yURL.setText("https://www.youtube.com/user/montanablack88");
+            ytView.setImageResource(mbicon);
+            soundboard.setText("Montanablack Sounds");
+            yt = 3;
+        }
+        if(yTuber == 3){
+            YouTuber.setText("Inscope21");
+            yURL.setText("https://www.youtube.com/user/inscope21");
+            ytView.setImageResource(isicon);
+            soundboard.setText("Inscope21 Sounds");
+            yt = 4;
+        }
+        if(yTuber == 4){
+            YouTuber.setText("ViscaBarca");
+            yURL.setText("https://www.youtube.com/user/Visca96Barca");
+            ytView.setImageResource(vbicon);
+            soundboard.setText("ViscaBarca Sounds");
+            yt = 2;
+        }
+        if(yTuber == 5){
+            YouTuber.setText("KSFreak");
+            yURL.setText("https://www.youtube.com/user/KsFreakWhatElse");
+            ytView.setImageResource(ksicon);
+            soundboard.setText("KSFreak Sounds");
+            yt = 6;
+        }
+
+    }
+
+    public void setInfoText()
+    {
+        TextView infotext = (TextView) findViewById(R.id.infotext);
+
+        Random rand = new Random();
+        rumNum2 = (rand.nextInt(12) + 1);
+
+        if(rumNum2 == 1){
+            infotext.setText("Halte den Sound gedrückt um ihn mit deinen Freunden zu teilen!");
+        }
+        if(rumNum2 == 2){
+            infotext.setText("Es kommen immer neue YouTuber hinzu!");
+        }
+        if(rumNum2 == 3){
+            infotext.setText("Hast du schon mal den Rumble Button ausprobiert?");
+        }
+        if(rumNum2 == 4){
+            infotext.setText("Schau doch mal bei uns auf Twitter vorbei!");
+        }
+        if(rumNum2 == 5){
+            infotext.setText("by Easter Egg Development");
+        }
+        if(rumNum2 == 6){
+            infotext.setText("Über 200 Sounds sind ab sofort verfügbar!");
+        }
+        if(rumNum2 == 7){
+            infotext.setText("Abonniere doch den YouTuber wenn dir die Sounds gefallen!");
+        }
+        if(rumNum2 == 8){
+            infotext.setText("Frohe Weihnachten und ein schönes neues Jahr!");
+        }
+        if(rumNum2 == 9){
+            infotext.setText("Kritik oder Fragen? Melde dich doch einfach bei uns auf Twitter oder Facebook!");
+        }
+        if(rumNum2 == 10){
+            infotext.setText("Unsere Email: eastereggdev@gmail.com");
+        }
+        if(rumNum2 == 11){
+            infotext.setText("Wie gefällt dir das neue Design? Geil oder?!");
+        }
+        if(rumNum2 == 12){
+            infotext.setText("Der Adventskalender soll auch ganz cool sein habe ich gehört...");
+        }
     }
 
     public void rumble(View view) //Button to play a random sound
@@ -57,7 +185,7 @@ public class MainActivity extends ActionBarActivity {
     public void Rumble()
     {
         Random rand = new Random();
-        rumNum = (rand.nextInt(150) + 1);
+        rumNum = (rand.nextInt(181) + 1);
         SelectSound();
     }
 
@@ -664,6 +792,130 @@ public class MainActivity extends ActionBarActivity {
         {
             mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.ms_zelossauberman);
         }
+        if(rumNum == 151)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_100000likes);
+        }
+        if(rumNum == 152)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_100erprezi);
+        }
+        if(rumNum == 153)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_11schuesse);
+        }
+        if(rumNum == 154)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_12erprezi);
+        }
+        if(rumNum == 155)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_1vor);
+        }
+        if(rumNum == 156)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_4minuten);
+        }
+        if(rumNum == 157)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_afk);
+        }
+        if(rumNum == 158)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_aimbot);
+        }
+        if(rumNum == 159)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_amk);
+        }
+        if(rumNum == 160)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_begruesung);
+        }
+        if(rumNum == 161)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_chickenxhunter);
+        }
+        if(rumNum == 162)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_doublenuklear);
+        }
+        if(rumNum == 163)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_endscore);
+        }
+        if(rumNum == 164)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_flanken);
+        }
+        if(rumNum == 165)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_fuereuchalle);
+        }
+        if(rumNum == 166)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_gamergrip);
+        }
+        if(rumNum == 167)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_haenchen);
+        }
+        if(rumNum == 168)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_ichhabsiegeschafft);
+        }
+        if(rumNum == 169)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_ichkannsnichtglauben);
+        }
+        if(rumNum == 170)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_ichweingleich);
+        }
+        if(rumNum == 171)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_letstesmal);
+        }
+        if(rumNum == 172)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_m8);
+        }
+        if(rumNum == 173)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_missgebirten);
+        }
+        if(rumNum == 174)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_muttervonanton);
+        }
+        if(rumNum == 175)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_nisen);
+        }
+        if(rumNum == 176)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_schweinpfeift);
+        }
+        if(rumNum == 177)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_tripleaufschiff);
+        }
+        if(rumNum == 178)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_triplenuklear);
+        }
+        if(rumNum == 179)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_turnon);
+        }
+        if(rumNum == 180)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_wichtig);
+        }
+        if(rumNum == 181)
+        {
+            mp = MediaPlayer.create(com.eastereggdev.jonathan.TubeButtons.MainActivity.this, R.raw.vb_wtf);
+        }
 
         mp.start();
     }
@@ -673,7 +925,7 @@ public class MainActivity extends ActionBarActivity {
         ytView = (ImageView) findViewById(R.id.yt_icon); //Change YouTuber Icon
         soundboard = (Button) findViewById(R.id.sounds); //Change Button to connect to the class
         soundboard.setText("Marcelscorpion Sounds"); //Change Text
-        soundboard.setBackgroundColor(Color.parseColor("#B71C1C")); //Change Background Color
+        soundboard.setBackgroundResource(R.drawable.msbuttongo); //Change Background Color
         ytView.setImageResource(msicon);
         yt = 1; //Value to set the different YouTubers
     }
@@ -683,7 +935,7 @@ public class MainActivity extends ActionBarActivity {
         ytView = (ImageView) findViewById(R.id.yt_icon);
         soundboard = (Button) findViewById(R.id.sounds);
         soundboard.setText("ViscaBarca Sounds");
-        soundboard.setBackgroundColor(Color.parseColor("#3F51B5"));
+        soundboard.setBackgroundResource(R.drawable.vbbuttongo);
         ytView.setImageResource(vbicon);
         yt = 2;
     }
@@ -693,7 +945,7 @@ public class MainActivity extends ActionBarActivity {
         ytView = (ImageView) findViewById(R.id.yt_icon);
         soundboard = (Button) findViewById(R.id.sounds);
         soundboard.setText("Montanablack Sounds");
-        soundboard.setBackgroundColor(Color.parseColor("#673AB7"));
+        soundboard.setBackgroundResource(R.drawable.mbbuttongo);
         ytView.setImageResource(mbicon);
         yt = 3;
     }
@@ -703,7 +955,7 @@ public class MainActivity extends ActionBarActivity {
         ytView = (ImageView) findViewById(R.id.yt_icon);
         soundboard = (Button) findViewById(R.id.sounds);
         soundboard.setText("Inscope21 Sounds");
-        soundboard.setBackgroundColor(Color.parseColor("#4CAF50"));
+        soundboard.setBackgroundResource(R.drawable.isbuttongo);
         ytView.setImageResource(isicon);
         yt = 4;
     }
@@ -713,9 +965,16 @@ public class MainActivity extends ActionBarActivity {
         ytView = (ImageView) findViewById(R.id.yt_icon);
         soundboard = (Button) findViewById(R.id.sounds);
         soundboard.setText("Elotrix Sounds");
-        soundboard.setBackgroundColor(Color.parseColor("#FF9800"));
+        soundboard.setBackgroundResource(R.drawable.etbuttongo);
         ytView.setImageResource(eticon);
         yt = 5;
+    }
+
+    public void ytlist (View view){
+
+        Intent intent = new Intent(this, YoutuberList.class);
+        startActivity(intent); //start the new class
+
     }
 
     public void sounds(View view) //Method to open the different soundboards
@@ -747,6 +1006,47 @@ public class MainActivity extends ActionBarActivity {
         if(yt == 5)
         {
             Intent intent = new Intent(this, Elotrix.class);
+            startActivity(intent);
+        }
+        if(yt == 6){
+            Intent intent = new Intent(this, KSFreak.class);
+            startActivity(intent);
+        }
+    }
+
+    public void youtuber(View view) //Method to open the different soundboards
+    {
+        if(yt == 0) //yt = YouTuber (Marcelscorpion = 0 and 1)
+        {
+            Intent intent = new Intent(this, Marcelscorpion.class);
+            startActivity(intent); //start the new class
+        }
+        if(yt == 1)
+        {
+            Intent intent = new Intent(this, Marcelscorpion.class);
+            startActivity(intent);
+        }
+        if(yt == 2)
+        {
+            Intent intent = new Intent(this, ViscaBarca.class);
+            startActivity(intent);
+        }
+        if(yt == 3)
+        {
+            Intent intent = new Intent(this, Montanablack.class);
+            startActivity(intent);
+        }
+        if(yt == 4) {
+            Intent intent = new Intent(this, Inscope.class);
+            startActivity(intent);
+        }
+        if(yt == 5)
+        {
+            Intent intent = new Intent(this, Elotrix.class);
+            startActivity(intent);
+        }
+        if(yt == 6){
+            Intent intent = new Intent(this, KSFreak.class);
             startActivity(intent);
         }
     }
@@ -785,7 +1085,7 @@ public class MainActivity extends ActionBarActivity {
                 startActivity(infos);
                 return true;
 
-            case R.id.action_favoriten:
+            case R.id.action_adventskalender:
                 Intent favoriten = new Intent(this, Favoriten.class);
                 startActivity(favoriten);
                 return true;
